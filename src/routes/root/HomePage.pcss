@@ -1,0 +1,60 @@
+
+.hompage{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,000000+100&0+0,0.4+100 */
+  background: -moz-linear-gradient(top, rgba(125,185,232,0) 0%, rgba(0,0,0,0.4) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(125,185,232,0) 0%,rgba(0,0,0,0.4) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(125,185,232,0) 0%,rgba(0,0,0,0.4) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#66000000',GradientType=0 ); /* IE6-9 */
+  position: relative;
+  height: auto;
+  width: 54%;
+  margin: 0 auto;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-image:
+    linear-gradient(to top, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0)) 1 100%;
+ }
+@media(max-width:575px) {
+  .hompage {
+    background: none;
+    border:none
+  }
+}
+.base {
+  position: relative;
+  width: 100%;
+  min-height:100%;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  visibility: inherit;
+  opacity: 1;
+  background: url("../../resource/images/clouds.png") 0 100% repeat-x;
+}
+.cont{
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.Title{
+  color: #fff;
+  font-size: responsive 35px 55px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+.Title span {
+  font-size: 120%;
+  color: #5f90dd;
+}
+.root {
+  border-radius: 0.25rem;
+  min-width: 282px;
+
+}
+.Search{
+  position: relative;
+}
+

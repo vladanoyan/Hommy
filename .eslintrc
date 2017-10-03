@@ -1,0 +1,12 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "react/prefer-stateless-function": "off",
+    "react/jsx-no-bind": "off",
+    "import/prefer-default-export": "off"
+  }
+}

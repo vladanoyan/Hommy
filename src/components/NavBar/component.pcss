@@ -1,0 +1,209 @@
+.NavbarContent{
+  position: absolute;
+  width: 100%;
+}
+.Navbar{
+  z-index: 99;
+}
+.login{
+  color: #fff!important;
+  font-size: responsive 10px 16px;
+  transition:all .5s;
+  border:1px solid #fff;
+  margin-right: 10px;
+  padding: 1px 20px;
+  font-weight:700;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+.sign{
+  color: #5f90dd!important;
+  font-size: responsive 10px 16px;
+  transition:all .5s;
+  border:1px solid #fff;
+  padding: 1px 15px;
+  background: #fff;
+  font-weight:700;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+.sign:hover{
+  background: transparent!important;
+  color: #fff !important;
+}
+.login:hover,.loginModal:hover{
+  background: #fff!important;
+  color: #5f90dd!important;
+}
+.brend{
+  color: #fff!important;
+  font-size: responsive 26px 40px;
+  font-family: monospace;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+@media(max-width: 575px){
+  .login,.sign{
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    margin: 2px;
+    font-size: 16px;
+    color: #fff !important;
+
+  }
+  .sign:hover,.login:hover,.signModal:hover{
+    background: rgba(255, 255, 255, 0.49) !important;
+    color: #5f90dd!important;
+
+  }
+  .loginModal,.signModal{
+    font-size: 16px !important;
+  }
+
+}
+
+.sign_up{
+  margin-right: 5px;
+}
+.modal{
+  transition: opacity 300ms ease-in;
+  opacity:1;
+  width:100%;
+  position: absolute;
+  z-index:999;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left:0;
+}
+
+.none{
+  outline: 0;
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+  position:absolute;
+  width:100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index:0;
+  left:0;
+  height: 100vh;
+
+}
+.modalContent{
+  width: auto;
+  margin: auto;
+  border: 1px solid #5f90dd;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0 40px;
+
+}
+@media (min-width: 768px)  {
+  .modalContent {
+    width: 600px;
+  }
+
+}
+.loginModal{
+  color: #5f90dd;
+  font-size: responsive 10px 16px;
+  transition:all .5s;
+  border:1px solid #5f90dd;
+  font-weight:700;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px 0;
+}
+.signModal{
+  color: #fff!important;
+  font-size: responsive 10px 16px;
+  transition:all .5s;
+  border:1px solid #5f90dd;
+  background: #5f90dd;
+  font-weight:700;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px 0;
+}
+.loginModal:hover{
+  background:  #5f90dd !important;
+  color: #fff!important;
+  border:1px solid #5f90dd;
+
+}
+.signModal:hover{
+  background:  #fff !important;
+  color: #5f90dd !important;
+  border:1px solid #5f90dd;
+
+}
+li{
+  list-style-type: none;
+}
+.modallog{
+  color: #5f90dd;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px;
+}
+
+a, a:hover,a:focus,a:active{
+  text-decoration: none;
+  outline: 0;
+}
+.formControl:focus{
+  border-color: rgba(95, 144, 221, 0.55);
+}
+.icon{
+  display: none;
+}
+@media(max-width: 575px){
+  .icon{
+    vertical-align: middle;
+    color: #fff;
+    font-size: 25px;
+    float: left;
+    display: block;
+    position: absolute;
+    right: 15px;
+    top:15px;
+  }
+  .togglerIcon{
+
+  }
+}
+.brend>img{
+  max-width: 30px;
+  margin-right: 5px;
+}
