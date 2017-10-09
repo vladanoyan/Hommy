@@ -1,6 +1,5 @@
 import React from 'react';
 import Sign from 'react-icons/lib/fa/sign-in';
-import { AvForm, AvFeedback, AvGroup, AvInput } from 'availity-reactstrap-validation';
 import { NavLink } from 'react-router-dom';
 import TiIconPack from 'react-icons/lib/fa/align-justify';
 import {
@@ -9,8 +8,8 @@ import {
   Nav,
   NavItem,
   NavLink as Link,
-  Button,
 } from 'reactstrap';
+import ModalLogin from '../../components/ModalLogin';
 import LogoBar from '../../resource/images/logoBar.png';
 import cs from './component.pcss';
 
@@ -64,48 +63,10 @@ class NavbarMenu extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        <div>
-          <div className={this.state.modalIsOpen ? `${cs.modal}` : `${cs.none}`}>
-            <div className={cs.modalContent}>
-              <div className={cs.modallog}>Log In Your Account</div>
-              <AvForm>
-                <AvGroup>
-                  <AvInput
-                    className={cs.formControl}
-                    name="email"
-                    type="email"
-                    placeholder="E-mail"
-                    id="example"
-                    required
-                  />
-                  <AvFeedback>Email address is wrong</AvFeedback>
-                </AvGroup>
-                <AvGroup>
-                  <AvInput
-                    className={cs.formControl}
-                    name="requiredProp"
-                    type="password"
-                    placeholder="Password"
-                    validate={{ required: true }}
-                    required
-                  />
-                  <AvFeedback>password is wrong</AvFeedback>
-                </AvGroup>
-                <footer>
-                  <Button className={cs.loginModal}>
-                    <Sign className={cs.sign_up} />
-                    Log In
-                  </Button>
-                  <Button
-                    onClick={this.toggleModal.bind(this)}
-                    className={cs.signModal}
-                  >Cancel
-                    </Button>
-                </footer>
-              </AvForm>
-            </div>
-          </div>
-        </div>
+        <ModalLogin
+          modal={this.state.modalIsOpen}
+          toggle={this.toggleModal.bind(this)}
+        />
       </div>
     );
   }
