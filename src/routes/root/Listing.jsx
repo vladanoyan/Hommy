@@ -4,7 +4,6 @@ import FilterIcon from 'react-icons/lib/ti/filter';
 import FormController from '../../lib/FormController';
 import Address from '../../components/ListingSearch/AdressLine';
 import CheckBox from '../../components/CheckBox';
-import Slide from '../../components/Slide';
 import ListingSlide from '../../components/ListingSlide/Slide';
 import LiistingCheckboxnumber from '../../components/ListingCheckboxnumber';
 import ListingItem from '../../components/ListingItem';
@@ -25,8 +24,7 @@ class Listing extends FormController {
         house: false,
         apartments: false,
         places: false,
-        buy: false,
-        sell: false,
+        sale: false,
         rent: false,
         trade: false,
         monthly: false,
@@ -96,7 +94,7 @@ class Listing extends FormController {
                     </div>
                     <div className={cs.rentFilter}>
                       <div className={cs.checkboxSlide}>
-                        <Slide />
+                        hhhh
                       </div>
                     </div>
                     <div className={cs.rentFilter}>

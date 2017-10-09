@@ -24,18 +24,10 @@ class CheckboxBtn extends React.Component {
           <Button
             className={cs.CheckboxBtn}
             color=""
-            onClick={() => this.onRadioBtnClick(1)}
-            active={this.state.rSelected === 1}
-          >
-            Buy
-          </Button>
-          <Button
-            className={cs.CheckboxBtn}
-            color=""
             onClick={() => this.onRadioBtnClick(2)}
             active={this.state.rSelected === 2}
           >
-            Sell
+            Sale
           </Button>
           <Button
             className={cs.CheckboxBtn}
