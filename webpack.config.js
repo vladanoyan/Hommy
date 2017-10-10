@@ -44,7 +44,7 @@ module.exports = {
   output: {
     filename: 'bundle-[hash].js',
     path: path.resolve(__dirname, 'docs'),
-    publicPath: '/Hommy',
+    publicPath: '/Hommy/',
   },
 
   /**

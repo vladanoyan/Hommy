@@ -4,7 +4,7 @@
   "description": "Hommy Application",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p",
+    "build": "rm -rf docs && webpack -p",
     "serve": "serve -p 3000 -s ./docs",
     "start": "webpack-dev-server",
     "start:isolated": "webpack-dev-server --config webpack.isolated.config.js",
