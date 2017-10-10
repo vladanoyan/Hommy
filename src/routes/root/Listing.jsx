@@ -5,6 +5,8 @@ import FormController from '../../lib/FormController';
 import Address from '../../components/ListingSearch/AdressLine';
 import CheckBox from '../../components/CheckBox';
 import ListingSlide from '../../components/ListingSlide/Slide';
+import ListingSlideFloor from '../../components/ListingSlideFloor/Slide';
+import ListingSlideArea from '../../components/ListingSlideArea/Slide';
 import LiistingCheckboxnumber from '../../components/ListingCheckboxnumber';
 import ListingItem from '../../components/ListingItem';
 import Sort from '../../components/MultiSelect2';
@@ -24,6 +26,7 @@ class Listing extends FormController {
         house: false,
         apartments: false,
         places: false,
+        photo: false,
         sale: false,
         rent: false,
         trade: false,
@@ -93,11 +96,21 @@ class Listing extends FormController {
                       </div>
                     </div>
                     <div className={cs.rentFilter}>
-                      <div className={cs.checkboxSlide}>
-                        hhhh
+                      <div className={cs.checkbox}>
+                        <CheckBox
+                          label="Only with photo"
+                          isChecked={this.getField('photo')}
+                          onChange={this.handleChange('photo')}
+                        />
                       </div>
                     </div>
                     <div className={cs.rentFilter}>
+                      <div className={cs.checkboxSlide}>
+                        <ListingSlideFloor />
+                      </div>
+                      <div className={cs.checkboxSlide}>
+                        <ListingSlideArea />
+                      </div>
                       <div className={cs.checkboxSlide}>
                         <ListingSlide />
                       </div>
@@ -131,7 +144,7 @@ class Listing extends FormController {
             <Col xs="12" md="9" sm="8">
               <Col
                 sm="12"
-                md={{ size: 6, offset: 3 }}
+                md={{ size: 8, offset: 2 }}
                 className={cs.floatRight}
               >
                 <Sort />
