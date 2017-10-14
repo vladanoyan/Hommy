@@ -4,7 +4,7 @@ import { AvForm, AvFeedback, AvGroup, AvInput } from 'availity-reactstrap-valida
 import { Button, Modal as BootstrapModal, ModalBody } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Cloes from 'react-icons/lib/fa/close';
-import Image from '../../resource/images/listing.jpg';
+import Image from '../../resource/images/log.jpg';
 import LogoBar from '../../resource/images/logoBar.png';
 import cs from './component.pcss';
 

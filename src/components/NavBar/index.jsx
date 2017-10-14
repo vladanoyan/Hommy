@@ -9,7 +9,7 @@ import {
   NavItem,
   NavLink as Link,
 } from 'reactstrap';
-import ModalLogin from '../../components/ModalLogin';
+import ModalLogin from '../../components/ModalSign';
 import LogoBar from '../../resource/images/logoBar.png';
 import cs from './component.pcss';
 

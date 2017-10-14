@@ -6,9 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import 'react-dates/lib/css/_datepicker.css';
 import './index.pcss';
+import '../src/resource/images/favicon.ico';
 import './bootstrap.scss';
 import Root from './routes/root';
 import rootRoutes from './routes/root/routes';
+
 
 const routes = [
   {
@@ -18,7 +20,7 @@ const routes = [
 ];
 
 ReactDOM.render(
-  <BrowserRouter basename="/Hommy">
+  <BrowserRouter basename="/">
     { renderRoutes(routes) }
   </BrowserRouter>,
   document.getElementById('root'),
