@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Sign from 'react-icons/lib/fa/sign-in';
 import PropTypes from 'prop-types';
 import validate from '../../reducer/validate';
 import asyncValidate from '../../reducer/asyncValidate';
@@ -23,33 +22,14 @@ const AsyncValidationForm = (props) => {
   return (
     <form onSubmit={handleSubmit} className={cs.form}>
       <Field
-        name="firstname"
-        type="text"
-        component={renderField}
-        label="First Name"
-      />
-      <Field
-        name="lastname"
-        type="text"
-        component={renderField}
-        label="Last Name"
-      />
-      <Field
         name="email"
         type="email"
         component={renderField}
         label="E-mail"
       />
-      <Field
-        name="password"
-        type="password"
-        component={renderField}
-        label="Password"
-      />
       <div>
         <button type="submit" disabled={submitting} className={cs.loginModal}>
-          <Sign className={cs.sign_up} />
-          Sign Up
+          Send
         </button>
       </div>
     </form>
@@ -78,7 +58,7 @@ renderField.propTypes = {
 
 
 export default reduxForm({
-  form: 'AsyncValidationSign',
+  form: 'AsyncValidationLoginRecoverPass',
   validate,
   asyncValidate,
   asyncBlurFields: ['email'],

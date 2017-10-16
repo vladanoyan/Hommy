@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import Cloes from 'react-icons/lib/fa/close';
 import Image from '../../resource/images/log.jpg';
 import LogoBar from '../../resource/images/logoBar.png';
-import AsyncValidationForm from '../../components/AsyncValidationForm';
+import AsyncValidationForm from '../../components/AsyncValidationFormLogin';
+import AsyncValidationFormRecoverPass from '../../components/AsyncValidationFormLoginRecoverPass';
 import showResults from '../../reducer/showResults';
 import cs from './component.pcss';
+
 
 class Modal extends React.Component {
   constructor(props) {
@@ -39,7 +41,25 @@ class Modal extends React.Component {
             <div className={cs.First}>
               <div className={cs.modallog}>Log In Your Account</div>
               <AsyncValidationForm onSubmit={showResults} />
-
+              <div
+                role="presentation"
+                className={cs.forgot}
+                onClick={this.toggleNested.bind(this)}
+              >
+                Forgot password ?
+              </div>
+              <BootstrapModal
+                isOpen={this.state.nestedModal}
+                toggle={this.toggleNested.bind(this)}
+              >
+                <ModalBody>
+                  <div className={cs.modalsecondHeader}>
+                    Password recovery
+                    <Cloes className={cs.cloes} onClick={this.toggleNested.bind(this)} />
+                  </div>
+                  <AsyncValidationFormRecoverPass onSubmit={showResults} />
+                </ModalBody>
+              </BootstrapModal>
             </div>
             <div className={cs.Second}>
               <Cloes className={cs.cloes} onClick={this.props.toggle} />

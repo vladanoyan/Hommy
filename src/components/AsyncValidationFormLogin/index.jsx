@@ -23,18 +23,6 @@ const AsyncValidationForm = (props) => {
   return (
     <form onSubmit={handleSubmit} className={cs.form}>
       <Field
-        name="firstname"
-        type="text"
-        component={renderField}
-        label="First Name"
-      />
-      <Field
-        name="lastname"
-        type="text"
-        component={renderField}
-        label="Last Name"
-      />
-      <Field
         name="email"
         type="email"
         component={renderField}
@@ -49,7 +37,7 @@ const AsyncValidationForm = (props) => {
       <div>
         <button type="submit" disabled={submitting} className={cs.loginModal}>
           <Sign className={cs.sign_up} />
-          Sign Up
+          Log In
         </button>
       </div>
     </form>
@@ -78,7 +66,7 @@ renderField.propTypes = {
 
 
 export default reduxForm({
-  form: 'AsyncValidationSign',
+  form: 'AsyncValidationLogin',
   validate,
   asyncValidate,
   asyncBlurFields: ['email'],

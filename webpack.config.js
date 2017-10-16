@@ -27,7 +27,7 @@ module.exports = function webpack() {
      * Entry point
      *
      */
-    entry: './src/index.jsx',
+    entry: ['babel-polyfill', './src/index.jsx'],
 
     /**
      * Configure default extensions

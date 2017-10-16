@@ -9,6 +9,7 @@ import {
   NavItem,
   NavLink as Link,
 } from 'reactstrap';
+import ModalSign from '../../components/ModalSign';
 import ModalLogin from '../../components/ModalLogin';
 import LogoBar from '../../resource/images/logoBar.png';
 import cs from './component.pcss';
@@ -20,11 +21,17 @@ class NavbarMenu extends React.Component {
     this.state = {
       isOpen: false,
       modalIsOpen: false,
+      modalSIsOpen: false,
     };
   }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen,
+    });
+  }
+  toggleModalSI() {
+    this.setState({
+      modalSIsOpen: !this.state.modalSIsOpen,
     });
   }
   toggleModal() {
@@ -58,11 +65,16 @@ class NavbarMenu extends React.Component {
                   <Sign className={cs.sign_up} />Log In</Link>
               </NavItem>
               <NavItem>
-                <NavLink to="/app/listings" className={cs.sign}>Sign Up</NavLink>
+                <Link className={cs.sign} onClick={this.toggleModalSI.bind(this)}>
+                  Sign Up</Link>
               </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
+        <ModalSign
+          modal={this.state.modalSIsOpen}
+          toggle={this.toggleModalSI.bind(this)}
+        />
         <ModalLogin
           modal={this.state.modalIsOpen}
           toggle={this.toggleModal.bind(this)}
