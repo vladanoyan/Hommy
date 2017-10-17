@@ -1,7 +1,7 @@
 import React from 'react';
-import { AvForm, AvFeedback, AvGroup, AvInput } from 'availity-reactstrap-validation';
-import { Container, Row, Col, Button, Label } from 'reactstrap';
-import IconMail from 'react-icons/lib/md/mail-outline';
+import { Container, Row, Col } from 'reactstrap';
+import AsyncValidationFormContact from '../../components/AsyncValidationFormContact';
+import showResults from '../../reducer/showResults';
 import cs from './Contact.pcss';
 
 
@@ -36,32 +36,7 @@ class Contact extends React.Component {
                   sm="12"
                   md={{ size: 6, offset: 3 }}
                 >
-                  <AvForm>
-                    <AvGroup>
-                      <Label className={cs.label} for="example">E-mail</Label>
-                      <AvInput
-                        className={cs.formControl}
-                        name="email"
-                        type="email"
-                        id="example"
-                        required
-                      />
-                      <AvFeedback>Email address is wrong</AvFeedback>
-                    </AvGroup>
-                    <AvGroup>
-                      <Label className={cs.label} for="textarea">Your message</Label>
-                      <AvInput
-                        className={cs.formControl}
-                        name="textarea"
-                        type="textarea"
-                        id="textarea"
-                      />
-                    </AvGroup>
-                    <Button className={cs.sendBtn}>
-                      Send
-                      <IconMail className={cs.iconMail} />
-                    </Button>
-                  </AvForm>
+                  <AsyncValidationFormContact onSubmit={showResults} />
                 </Col>
               </Row>
             </Container>
