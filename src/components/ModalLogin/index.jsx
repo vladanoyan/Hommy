@@ -7,6 +7,7 @@ import LogoBar from '../../resource/images/logoBar.png';
 import AsyncValidationForm from '../../components/AsyncValidationFormLogin';
 import AsyncValidationFormRecoverPass from '../../components/AsyncValidationFormLoginRecoverPass';
 import showResults from '../../reducer/showResults';
+import FacebookBTN from '../../components/Buttons/FacebookBTN';
 import cs from './component.pcss';
 
 
@@ -41,6 +42,7 @@ class Modal extends React.Component {
             <div className={cs.First}>
               <div className={cs.modallog}>Log In Your Account</div>
               <AsyncValidationForm onSubmit={showResults} />
+              <FacebookBTN />
               <div
                 role="presentation"
                 className={cs.forgot}

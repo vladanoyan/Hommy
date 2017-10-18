@@ -52,13 +52,13 @@ class NavbarMenu extends React.Component {
           <Collapse className={cs.collapse} isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink to="/app/listings" className={cs.link}>Listing</NavLink>
+                <NavLink activeClassName={`${cs.active1}`} to="/app/listings" className={cs.link}>Listing</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/app/contacts" className={cs.link}>Contact us</NavLink>
+                <NavLink activeClassName={`${cs.active1}`} to="/app/contacts" className={cs.link}>Contact us</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/app/terms" className={cs.link}>Terms of Service</NavLink>
+                <NavLink activeClassName={`${cs.active1}`} to="/app/terms" className={cs.link}>Terms of Service</NavLink>
               </NavItem>
               <NavItem>
                 <Link className={cs.login} onClick={this.toggleModal.bind(this)}>

@@ -6,6 +6,7 @@ import Image from '../../resource/images/log.jpg';
 import LogoBar from '../../resource/images/logoBar.png';
 import AsyncValidationForm from '../../components/AsyncValidationForm';
 import showResults from '../../reducer/showResults';
+import FacebookBTN from '../../components/Buttons/FacebookBTN';
 import cs from './component.pcss';
 
 class Modal extends React.Component {
@@ -39,6 +40,7 @@ class Modal extends React.Component {
             <div className={cs.First}>
               <div className={cs.modallog}>Sign Up New Account</div>
               <AsyncValidationForm onSubmit={showResults} />
+              <FacebookBTN />
             </div>
             <div className={cs.Second}>
               <Cloes className={cs.cloes} onClick={this.props.toggle} />

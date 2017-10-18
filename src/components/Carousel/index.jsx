@@ -75,7 +75,7 @@ class SlideShowModal extends React.Component {
             className={`${cs.arrow} ${cs.left}`}
             onClick={this.onSlideLeft.bind(this)}
           >
-            <Icon icon="left-arrow" color="#c3c3c3" fontSize={18} />
+            <Icon icon="left-arrow" color="#c3c3c3" fontSize={32} />
           </div>
           <div
             role="button"
@@ -83,7 +83,7 @@ class SlideShowModal extends React.Component {
             className={`${cs.arrow} ${cs.right}`}
             onClick={this.onSlideRight.bind(this)}
           >
-            <Icon icon="right-arrow" color="#c3c3c3" fontSize={18} />
+            <Icon icon="right-arrow" color="#c3c3c3" fontSize={32} />
           </div>
           <img
             role="presentation"

@@ -72,7 +72,6 @@
     font-size: 16px !important;
   }
   .link{
-
     transition:all .5s;
     border:1px solid #fff;
     padding: 1px 15px;
@@ -100,6 +99,7 @@
   font-size: responsive 10px 16px;
   color: #fff;
   font-weight:700;
+  position: relative;
 }
 .sign_up{
   margin-right: 5px;
@@ -118,7 +118,19 @@
   align-items: center;
   left:0;
 }
-
+.active1:after{
+  content: '';
+  border-bottom: 2px solid #fff;
+  padding: 0;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
 .none{
   outline: 0;
   opacity: 0.01;
@@ -164,6 +176,9 @@ a, a:hover,a:focus,a:active{
   display: none;
 }
 @media(max-width: 575px){
+  .active1:after{
+    width: 0;
+  }
   .icon{
     vertical-align: middle;
     color: #fff;
