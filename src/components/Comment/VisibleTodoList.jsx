@@ -4,14 +4,17 @@ import TodoList from './TodoList';
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case 'SHOW_ALL':
-      return todos;
-    default:
+      break;
   }
+  return todos;
 };
 
-const mapStateToProps = (state) => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
-});
+const mapStateToProps = state => {
+  return {
+    todos: getVisibleTodos(state.todos, state.visibilityFilter),
+  };
+};
+
 
 const VisibleTodoList = connect(
   mapStateToProps,

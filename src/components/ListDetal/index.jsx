@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal as BootstrapModal, ModalBody } from 'reactstrap';
 import Location from 'react-icons/lib/go/location';
 import Cloes from 'react-icons/lib/fa/close';
-import AsyncValidationFormListDetal from '../../components/AsyncValidationFormListDetal';
+import SyncValidationFormListDetal from '../SyncValidationFormListDetal';
 import showResults from '../../reducer/showResults';
 import cs from './component.pcss';
 
@@ -92,7 +92,7 @@ class Contact extends React.Component {
         </div>
         <div className={cs.formMessage}>
           <h3 className={cs.ms}>Message</h3>
-          <AsyncValidationFormListDetal onSubmit={showResults} />
+          <SyncValidationFormListDetal onSubmit={showResults} />
         </div>
       </div>
     );

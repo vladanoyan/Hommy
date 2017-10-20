@@ -4,14 +4,15 @@ import Pic from '../../resource/images/profile-pic.png';
 import cs from './TodoList.pcss';
 
 const TodoList = ({ todos }) => (
-  <ul className={cs.ulCom}>{todos.map(todo =>
+  <ul className={cs.ulCom}>{todos.map(todo => (
     <li
       key={todo.id}
       className={cs.liCom}
     >
       <img className={cs.img} src={Pic} alt="user" />
       {todo.text}
-    </li>)}
+    </li>),
+  )}
   </ul>
 );
 

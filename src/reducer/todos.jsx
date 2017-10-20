@@ -6,10 +6,10 @@ const todos = (state = [], action) => {
         {
           id: action.id,
           text: action.text,
-        }
+        },
       ];
     default:
-      return state
+      return state;
   }
 };
 
