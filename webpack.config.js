@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = function webpack() {
+module.exports = (env) => {
   return {
     /**
      * Dev server configuration
@@ -44,7 +44,7 @@ module.exports = function webpack() {
     output: {
       filename: 'bundle-[hash].js',
       path: path.resolve(__dirname, 'docs'),
-      publicPath: process.env.NODE_ENV === 'production' ? '/Hommy/' : '/',
+      publicPath: env.dev ? '/' : '/Hommy/',
     },
 
     /**

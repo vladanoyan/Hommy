@@ -4,9 +4,9 @@
   "description": "Hommy Application",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf docs && webpack -p",
+    "build": "rm -rf docs && webpack -p --env.dev",
     "serve": "serve -p 3000 -s ./docs",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --env.dev",
     "start:isolated": "webpack-dev-server --config webpack.isolated.config.js",
     "lint": "eslint ./src --ext .js --ext .jsx"
   },

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import { reducer as reduxFormReducer } from 'redux-form';
-import data from './data';
+import todos from './todos';
+import visibilityFilter from './visibilityFilter';
 
 
 export default combineReducers({
   form: reduxFormReducer,
-  data,
+  todos,
+  visibilityFilter,
 });

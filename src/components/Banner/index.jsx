@@ -1,5 +1,6 @@
 import React from 'react';
-import Banner from '../../resource/images/baner.jpg';
+import Banner from '../../resource/images/giphy (1).gif';
+import Banner1 from '../../resource/images/giphy (2).gif';
 import cs from './component.pcss';
 
 class HomePage extends React.Component {
@@ -8,7 +9,7 @@ class HomePage extends React.Component {
       <div>
         <div className={cs.banner}>
           <img src={Banner} alt="Banner" />
-          <img src={Banner} alt="Banner" />
+          <img src={Banner1} alt="Banner" />
         </div>
       </div>
     );
