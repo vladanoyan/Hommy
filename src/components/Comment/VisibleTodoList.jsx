@@ -5,6 +5,8 @@ const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case 'SHOW_ALL':
       break;
+    default:
+      break;
   }
   return todos;
 };
