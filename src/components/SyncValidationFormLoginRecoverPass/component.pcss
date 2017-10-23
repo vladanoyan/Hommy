@@ -30,55 +30,6 @@ position: relative;
   font-weight: 700;
   margin-bottom: 5px;
 }
-.sendBtn{
-  color: #fff;
-  background-color: #5f90dd;
-  border-color: #fff;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-  display: inline-block;
-  font-weight: normal;
-  line-height: 1.25;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  user-select: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  transition: all 0.2s ease-in-out;
-  margin-top: 20px;
-}
-.sendBtn:hover{
-  color: #fff;
-  background-color: #5f90dd;
-  border-color: #fff;
-  box-shadow: 0 0 13px 0 rgba(0,0,0,0.3);
-  transform: scale(1.1, 1.1);
-
-}
-.radio{
-  display: inline-block !important;
-  width: inherit !important;
-  margin: 10px!important;
-  vertical-align: middle!important;
-}
-.iconMail{
-  margin-left: 5px;
-  font-size: 25px;
-}
-.form .textarea{
-  width: 100%;
-  height: 140px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
-  padding: 10px;
-
-}
-
-.form label{
-  color: rgba(31, 36, 67, 0.77);
-}
-
 .form input{
   display: block;
   width: 100%;
@@ -97,6 +48,32 @@ position: relative;
 .form input:focus{
   border-color: rgba(95, 144, 221, 0.55);
 }
+.loginModal{
+  font-size: 16px !important;
+}
+.loginModal{
+  color: #5f90dd;
+  font-size: responsive 10px 16px;
+  transition:background .5s;
+  border:1px solid #5f90dd;
+  font-weight:700;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px 0;
+  background: #fff;
+  position: relative;
+  top:0;
+}
+.loginModal:active{
+  position: relative;
+  top:3px;
+}
 .async {
   position: relative;
 }
@@ -111,4 +88,10 @@ position: relative;
   height: 16px;
   width: 16px;
   background-image: url(data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==);
+}
+.loginModal:hover{
+  background:  #5f90dd !important;
+  color: #fff!important;
+  border:1px solid #5f90dd;
+
 }

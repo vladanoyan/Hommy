@@ -35,7 +35,6 @@ position: relative;
   color: #fff;
   background-color: #5f90dd;
   border-color: #fff;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
   display: inline-block;
   font-weight: normal;
   line-height: 1.25;
@@ -46,20 +45,19 @@ position: relative;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border-radius: 0.25rem;
-  transition: all 0.2s ease-in-out;
   margin-top: 20px;
+  position: relative;
+  top:0;
+  cursor: pointer;
 }
 .sendBtn:hover{
   color: #fff;
-  background-color: #5f90dd;
+  background-color: rgba(95, 144, 221, 0.89);
   border-color: #fff;
-  box-shadow: 0 0 13px 0 rgba(0,0,0,0.3);
-  transform: scale(1.1, 1.1);
-
 }
-.iconMail{
-  margin-left: 5px;
-  font-size: 25px;
+.sendBtn:active{
+  position: relative;
+  top:3px;
 }
 .form .textarea{
   width: 100%;

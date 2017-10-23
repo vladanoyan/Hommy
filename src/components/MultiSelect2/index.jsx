@@ -1,40 +1,29 @@
 import React from 'react';
-import Select from 'react-select';
+import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
 import cs from './component.pcss';
 
-class SelectSort extends React.Component {
-  constructor(props) {
-    super(props);
+const SimpleForm = props => {
+  const { handleSubmit } = props;
 
-    this.state = {
-      value: '',
-    };
-  }
-
-  onChange(value) {
-    this.setState({
-      value,
-    });
-  }
-  render() {
-    const options = [
-      { value: 'low', label: 'Price: Low to High' },
-      { value: 'high', label: 'Price: High to Low' },
-      { value: 'newest', label: 'Newest Arrivals' },
-    ];
-    return (
+  return (
+    <form onSubmit={handleSubmit}>
       <div className={cs.Sorting}>
-        <span>Sort by</span>
-        <Select
-          className={cs.Sort}
-          name="form-field-name"
-          value={this.state.value}
-          options={options}
-          onChange={this.onChange.bind(this)}
-        />
+        <Field name="sort" component="select" className={cs.Sort}>
+          <option>Sort by</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="newest">Newest Arrivals</option>
+        </Field>
       </div>
-    );
-  }
-}
+    </form>
+  );
+};
 
-export default SelectSort;
+SimpleForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+};
+
+export default reduxForm({
+  form: 'sort',
+})(SimpleForm);

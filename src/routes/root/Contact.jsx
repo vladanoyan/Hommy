@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import AsyncValidationFormContact from '../../components/AsyncValidationFormContact';
+import SyncValidationFormContact from '../../components/SyncValidationFormContact';
 import showResults from '../../reducer/showResults';
 import cs from './Contact.pcss';
 
@@ -36,7 +36,7 @@ class Contact extends React.Component {
                   sm="12"
                   md={{ size: 6, offset: 3 }}
                 >
-                  <AsyncValidationFormContact onSubmit={showResults} />
+                  <SyncValidationFormContact onSubmit={showResults} />
                 </Col>
               </Row>
             </Container>

@@ -9,6 +9,7 @@ import ListingSlideFloor from '../../components/ListingSlideFloor/Slide';
 import ListingSlideArea from '../../components/ListingSlideArea/Slide';
 import LiistingCheckboxnumber from '../../components/ListingCheckboxnumber';
 import ListingItem from '../../components/ListingItem';
+import showResults from '../../reducer/showResults';
 import Sort from '../../components/MultiSelect2';
 import Banner from '../../components/Banner';
 import cs from './Listing.pcss';
@@ -147,7 +148,7 @@ class Listing extends FormController {
                 md={{ size: 8, offset: 2 }}
                 className={cs.floatRight}
               >
-                <Sort />
+                <Sort onSubmit={showResults} />
               </Col>
               <ListingItem />
             </Col>

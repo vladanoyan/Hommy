@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Cloes from 'react-icons/lib/fa/close';
 import Image from '../../resource/images/log.jpg';
 import LogoBar from '../../resource/images/logoBar.png';
-import AsyncValidationForm from '../../components/AsyncValidationFormLogin';
-import AsyncValidationFormRecoverPass from '../../components/AsyncValidationFormLoginRecoverPass';
+import SyncValidationForm from '../../components/SyncValidationFormLogin';
+import SyncValidationFormRecoverPass from '../../components/SyncValidationFormLoginRecoverPass';
 import showResults from '../../reducer/showResults';
 import FacebookBTN from '../../components/Buttons/FacebookBTN';
 import cs from './component.pcss';
@@ -41,7 +41,7 @@ class Modal extends React.Component {
           <ModalBody className={cs.modalContent}>
             <div className={cs.First}>
               <div className={cs.modallog}>Log In Your Account</div>
-              <AsyncValidationForm onSubmit={showResults} />
+              <SyncValidationForm onSubmit={showResults} />
               <FacebookBTN />
               <div
                 role="presentation"
@@ -59,7 +59,7 @@ class Modal extends React.Component {
                     Password recovery
                     <Cloes className={cs.cloes} onClick={this.toggleNested.bind(this)} />
                   </div>
-                  <AsyncValidationFormRecoverPass onSubmit={showResults} />
+                  <SyncValidationFormRecoverPass onSubmit={showResults} />
                 </ModalBody>
               </BootstrapModal>
             </div>

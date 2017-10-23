@@ -7,7 +7,7 @@
 .login{
   color: #fff!important;
   font-size: responsive 10px 16px;
-  transition:all .5s;
+  transition:background .5s;
   border:1px solid #fff;
   margin-right: 10px;
   padding: 1px 20px;
@@ -19,12 +19,13 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
+  position: relative;
+  top: 0;
 }
 .sign{
   color: #5f90dd!important;
   font-size: responsive 10px 16px;
-  transition:all .5s;
+  transition:background .5s;
   border:1px solid #fff;
   padding: 1px 15px;
   background: #fff;
@@ -36,15 +37,24 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
+  top: 0;
+}
 
+.sign:active,.login:active,.link:active{
+  position: relative;
+  top: 3px;
 }
-.sign:hover{
-  background: transparent!important;
-  color: #fff!important;
-}
-.login:hover,.loginModal:hover{
-  background: #fff!important;
-  color: #5f90dd!important;
+@media(min-width: 576px) {
+  .sign:hover{
+    background: transparent;
+    color: #fff;
+
+  }
+  .login:hover {
+    background: #fff;
+    color: #5f90dd !important;
+  }
 }
 .brend{
   color: #fff!important;
@@ -56,7 +66,7 @@
 
 }
 @media(max-width: 575px){
-  .login,.sign{
+  .login,.sign,.link{
     text-align: center;
     background: rgba(255, 255, 255, 0.25);
     margin: 2px;
@@ -64,12 +74,9 @@
     color: #fff !important;
 
   }
-  .sign:hover,.login:hover .link:hover{
+  .sign:hover,.login:hover, .link:hover{
     background: rgba(255, 255, 255, 0.49) !important;
-    color: #5f90dd!important;
-  }
-  .loginModal,.signModal,.link{
-    font-size: 16px !important;
+    color: #fff!important;
   }
   .link{
     transition:all .5s;
@@ -83,10 +90,9 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.25);
     margin: 2px !important;
-    color: #fff !important;
+    font-size: 16px !important;
+
 
   }
   .collapse{
@@ -104,20 +110,6 @@
 .sign_up{
   margin-right: 5px;
 }
-.modal{
-  transition: opacity 300ms ease-in;
-  opacity:1;
-  width:100%;
-  position: fixed;
-  z-index:999;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left:0;
-}
 .active1:after{
   content: '';
   border-bottom: 2px solid #fff;
@@ -131,31 +123,7 @@
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-.none{
-  outline: 0;
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-  position:absolute;
-  width:100%;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index:0;
-  left:0;
-  height: 100%;
 
-}
-.modalBackdropOne{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1040;
-  background-color: #000;
-  opacity: 0.5;
-}
 li{
   list-style-type: none;
 }

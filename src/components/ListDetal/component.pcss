@@ -152,6 +152,56 @@
   color:#888989;
   text-align: justify;
 }
+.card>.pe {
+  font-size: responsive 13px 16px;
+  color: #888989;
+  text-align: justify;
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.card>.pe2 {
+  font-size: responsive 13px 16px;
+  color: #888989;
+  text-align: justify;
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-duration: 3s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+  @-webkit-keyframes slideInRight {
+    0% {
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+      visibility: visible;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideInRight {
+    0% {
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+      visibility: visible;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+.p>.iconCall{
+  margin-right: 10px;
+  font-size: 20px;
+  color: #5f90dd;
+}
 .listItem ul{
   padding: 0;
 }
@@ -169,7 +219,94 @@
   color: #e6302e;
 }
 .formMessage .ms{
-  font-size: responsive 16px 18px;
+  font-size: responsive 14px 16px;
+  color: #5f90dd;
+  transition:background .5s;
+  border:1px solid #5f90dd;
+  font-weight:700;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px 0;
+  background: #fff;
+  padding: 5px 0;
+  position: relative;
+  top: 0;
+}
+.formMessage .ms:hover{
+  background:  #5f90dd !important;
+  color: #fff!important;
+  border:1px solid #5f90dd;
+}
+.formMessage .ms:active{
+  position: relative;
+  top: 3px;
+}
+.card{
+  border:none;
+}
+.iconMail,.iconCall{
+  margin-left: 5px;
+  font-size: 22px;
+}
+.ms:hover .iconMail{
+  -webkit-animation-name: lightSpeedOut;
+  animation-name: lightSpeedOut;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+  animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes ex4 { /* CSS3 */
+  0%   { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+.ms:hover .iconCall{
+  animation:ex4 0.3s infinite; /* CSS3 */
+}
+
+@-webkit-keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0;
+  }
+}
+@keyframes lightSpeedOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0) skewX(30deg);
+    transform: translate3d(100%, 0, 0) skewX(30deg);
+    opacity: 0;
+  }
+}
+.img{
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  max-width: 110px;
+  width: 100%;
+  height: auto;
+
+}
+.Name{
+  font-size: responsive 16px 20px;
   color:#888989;
-  text-align: left;
+  text-align: center;
 }

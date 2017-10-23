@@ -30,6 +30,9 @@ position: relative;
   font-weight: 700;
   margin-bottom: 5px;
 }
+.sign_up{
+  margin-right: 5px;
+}
 .form input{
   display: block;
   width: 100%;
@@ -48,17 +51,14 @@ position: relative;
 .form input:focus{
   border-color: rgba(95, 144, 221, 0.55);
 }
-.signModal:hover{
-  background: rgba(255, 255, 255, 0.49) !important;
-  color: #5f90dd!important;
-}
-.loginModal,.signModal{
+
+.loginModal{
   font-size: 16px !important;
 }
 .loginModal{
   color: #5f90dd;
   font-size: responsive 10px 16px;
-  transition:all .5s;
+  transition:background .5s;
   border:1px solid #5f90dd;
   font-weight:700;
   -webkit-border-radius: 3px;
@@ -71,8 +71,13 @@ position: relative;
   width: 100%;
   margin: 10px 0;
   background: #fff;
+  position: relative;
+  top:0;
 }
-
+.loginModal:active{
+  position: relative;
+  top:3px;
+}
 .async {
   position: relative;
 }
@@ -88,32 +93,10 @@ position: relative;
   width: 16px;
   background-image: url(data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==);
 }
-.signModal{
-  color: #fff!important;
-  font-size: responsive 10px 16px;
-  transition:all .5s;
-  border:1px solid #5f90dd;
-  background: #5f90dd;
-  font-weight:700;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  width: 100%;
-  margin:0;
-}
+
 .loginModal:hover{
   background:  #5f90dd !important;
   color: #fff!important;
-  border:1px solid #5f90dd;
-
-}
-.signModal:hover{
-  background:  #fff !important;
-  color: #5f90dd !important;
   border:1px solid #5f90dd;
 
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import IconMail from 'react-icons/lib/md/mail-outline';
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import validate from '../../reducer/syncValidate';
@@ -46,7 +45,6 @@ const SyncValidationForm = (props) => {
       <div>
         <Button type="submit" disabled={submitting} className={cs.sendBtn}>
           Send
-          <IconMail className={cs.iconMail} />
         </Button>
       </div>
     </form>

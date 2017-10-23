@@ -1,8 +1,13 @@
 import React from 'react';
-import { Modal as BootstrapModal, ModalBody } from 'reactstrap';
+import { Modal as BootstrapModal, ModalBody, Card, Collapse } from 'reactstrap';
 import Location from 'react-icons/lib/go/location';
 import Cloes from 'react-icons/lib/fa/close';
+import IconMail from 'react-icons/lib/md/mail-outline';
+import IconCall from 'react-icons/lib/md/phone-in-talk';
+import Phone from 'react-icons/lib/fa/phone';
+import Fax from 'react-icons/lib/fa/fax';
 import SyncValidationFormListDetal from '../SyncValidationFormListDetal';
+import Pic from '../../resource/images/profile-pic.png';
 import showResults from '../../reducer/showResults';
 import cs from './component.pcss';
 
@@ -27,11 +32,23 @@ const list = [
 class Contact extends React.Component {
   constructor(props) {
     super(props);
+    this.toggle = this.toggle.bind(this);
+    this.toggleCall = this.toggleCall.bind(this);
     this.state = {
       nestedModal: false,
       modal: false,
+      collapse: false,
+      collapseCall: false,
     };
   }
+
+  toggle() {
+    this.setState({ collapse: !this.state.collapse });
+  }
+  toggleCall() {
+    this.setState({ collapseCall: !this.state.collapseCall });
+  }
+
   toggleNested() {
     this.setState({
       nestedModal: !this.state.nestedModal,
@@ -65,7 +82,7 @@ class Contact extends React.Component {
             <ModalBody className={cs.modalContent}>
               <Cloes className={cs.cloes} onClick={this.toggleNested.bind(this)} />
               <div>
-                <iframe title="Map" className={cs.map} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24389.05406004647!2d44.488522135817576!3d40.17275188547844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa2dab8fc8b5b%3A0x3d1479ae87da526a!2sYerevan%2C+Armenia!5e0!3m2!1sen!2s!4v1508329525012" />
+                <iframe title="Map" className={cs.map} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48782.183738117616!2d44.450962601710856!3d40.1670810740494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa2dab8fc8b5b%3A0x3d1479ae87da526a!2z1LXWgNaH1aHVtiwg1YDVodW11aHVvdW_1aHVtg!5e0!3m2!1shy!2s!4v1508770330294" />
               </div>
             </ModalBody>
           </BootstrapModal>
@@ -90,9 +107,34 @@ class Contact extends React.Component {
             {listItems}
           </ul>
         </div>
+        <div className="text-center">
+          <img className={cs.img} src={Pic} alt="user" />
+          <div className={cs.Name}>Name Company</div>
+        </div>
         <div className={cs.formMessage}>
-          <h3 className={cs.ms}>Message</h3>
-          <SyncValidationFormListDetal onSubmit={showResults} />
+          <button className={cs.ms} onClick={this.toggleCall}>Call
+            <IconCall className={cs.iconCall} />
+          </button>
+          <Collapse isOpen={this.state.collapseCall}>
+            <Card className={cs.card}>
+              <div className={cs.pe}>
+                <Phone className={cs.iconCall} />
+                +818-000-000-000
+              </div>
+              <div className={cs.pe2}>
+                <Fax className={cs.iconCall} />
+                +818-000-000-000
+              </div>
+            </Card>
+          </Collapse>
+          <button className={cs.ms} onClick={this.toggle}>Message
+            <IconMail className={cs.iconMail} />
+          </button>
+          <Collapse isOpen={this.state.collapse}>
+            <Card className={cs.card}>
+              <SyncValidationFormListDetal onSubmit={showResults} />
+            </Card>
+          </Collapse>
         </div>
       </div>
     );

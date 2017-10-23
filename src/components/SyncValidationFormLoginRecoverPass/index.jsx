@@ -1,24 +1,19 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Sign from 'react-icons/lib/fa/sign-in';
 import PropTypes from 'prop-types';
-import validate from '../../reducer/validate';
-import asyncValidate from '../../reducer/asyncValidate';
+import validate from '../../reducer/syncValidate';
 import cs from './component.pcss';
 
-const renderField = (
-  { input, label, type, meta: { asyncValidating, touched, error } },
-) => {
-  return (
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+  <div>
     <div>
-      <div className={asyncValidating ? `${cs.async}` : ''}>
-        <input {...input} type={type} placeholder={label} />
-        {touched && error && <span>{error}</span>}
-      </div>
+      <input {...input} placeholder={label} type={type} />
+      {touched && ((error && <span>{error}</span>))}
     </div>
-  );
-};
-const AsyncValidationForm = (props) => {
+  </div>
+);
+
+const SyncValidationForm = (props) => {
   const { handleSubmit, submitting } = props;
   return (
     <form onSubmit={handleSubmit} className={cs.form}>
@@ -28,23 +23,16 @@ const AsyncValidationForm = (props) => {
         component={renderField}
         label="E-mail"
       />
-      <Field
-        name="password"
-        type="password"
-        component={renderField}
-        label="Password"
-      />
       <div>
         <button type="submit" disabled={submitting} className={cs.loginModal}>
-          <Sign className={cs.sign_up} />
-          Log In
+          Send
         </button>
       </div>
     </form>
   );
 };
 
-AsyncValidationForm.propTypes = {
+SyncValidationForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
 
@@ -55,7 +43,6 @@ renderField.propTypes = {
     onChange: PropTypes.func,
   }).isRequired,
   meta: PropTypes.shape({
-    asyncValidating: PropTypes.bool,
     touched: PropTypes.bool,
     error: PropTypes.string,
   }).isRequired,
@@ -66,8 +53,6 @@ renderField.propTypes = {
 
 
 export default reduxForm({
-  form: 'AsyncValidationLogin',
+  form: 'SyncValidationFormRecover',
   validate,
-  asyncValidate,
-  asyncBlurFields: ['email'],
-})(AsyncValidationForm);
+})(SyncValidationForm);
