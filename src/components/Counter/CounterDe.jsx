@@ -7,7 +7,7 @@ class CounterDe extends Component {
   render() {
     const { value1, onDecrement } = this.props;
     return (
-      <div className={cs.LikeBlock} >
+      <div className={cs.LikeBlock}>
         {' '}
         <Like
           onClick={onDecrement}

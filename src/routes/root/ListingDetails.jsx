@@ -11,6 +11,7 @@ import VisibleTodoList from '../../components/Comment/VisibleTodoList';
 import cs from './ListingDetails.pcss';
 
 class Contact extends React.Component {
+
   render() {
     return (
       <Container className={cs.listDetl}>
