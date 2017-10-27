@@ -4,6 +4,7 @@ import todos from './todos';
 import counterDe from './counterDe';
 import counter from './counter';
 import visibilityFilter from './visibilityFilter';
+import dispatCheck from './dispatCheck';
 
 
 export default combineReducers({
@@ -12,4 +13,5 @@ export default combineReducers({
   visibilityFilter,
   counterDe,
   counter,
+  dispatCheck,
 });

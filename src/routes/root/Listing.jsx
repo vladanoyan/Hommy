@@ -1,6 +1,7 @@
 import { Container, Row, Col, Collapse, Button, CardBlock, Card } from 'reactstrap';
 import React from 'react';
 import FilterIcon from 'react-icons/lib/ti/filter';
+import { connect } from 'react-redux';
 import FormController from '../../lib/FormController';
 import Address from '../../components/ListingSearch/AdressLine';
 import CheckBox from '../../components/CheckBox';
@@ -63,6 +64,7 @@ class Listing extends FormController {
                           label="Private"
                           isChecked={this.getField('private')}
                           onChange={this.handleChange('private')}
+                          onClick={this.props.dispatCheck}
                         />
                       </div>
                       <div className={cs.checkbox}>
@@ -158,5 +160,20 @@ class Listing extends FormController {
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatCheck: () => {
+      dispatch({ type: 'CHECK' });
+    },
+  };
+};
 
-export default Listing;
+const mapStateToProps = (state) => {
+  return {
+    dispatCheck: state.dispatCheck,
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Listing);
