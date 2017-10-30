@@ -20,7 +20,7 @@ const routes = [
 ];
 
 ReactDOM.render(
-  <BrowserRouter basename="/">
+  <BrowserRouter basename="Hommy/">
     { renderRoutes(routes) }
   </BrowserRouter>,
   document.getElementById('root'),

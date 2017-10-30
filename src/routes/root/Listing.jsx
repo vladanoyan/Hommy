@@ -2,6 +2,7 @@ import { Container, Row, Col, Collapse, Button, CardBlock, Card } from 'reactstr
 import React from 'react';
 import FilterIcon from 'react-icons/lib/ti/filter';
 import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
 import FormController from '../../lib/FormController';
 import Address from '../../components/ListingSearch/AdressLine';
 import CheckBox from '../../components/CheckBox';
@@ -54,91 +55,92 @@ class Listing extends FormController {
               <Collapse isOpen={this.state.collapse} className={cs.collapse}>
                 <Card>
                   <CardBlock className={cs.CardBlock}>
-                    <Address />
-                    <div className={cs.rentFilter}>
-                      <CheckboxBtn />
-                    </div>
-                    <div className={cs.rentFilter}>
-                      <div className={cs.checkbox}>
-                        <CheckBox
-                          label="Private"
-                          isChecked={this.getField('private')}
-                          onChange={this.handleChange('private')}
-                          onClick={this.props.dispatCheck}
-                        />
+                    <form>
+                      <Address />
+                      <div className={cs.rentFilter}>
+                        <CheckboxBtn />
                       </div>
-                      <div className={cs.checkbox}>
-                        <CheckBox
-                          label="Agency"
-                          isChecked={this.getField('agency')}
-                          onChange={this.handleChange('agency')}
-                        />
+                      <div className={cs.rentFilter}>
+                        <div className={cs.checkbox}>
+                          <CheckBox
+                            label="Private"
+                            isChecked={this.getField('private')}
+                            onChange={this.handleChange('private')}
+                          />
+                        </div>
+                        <div className={cs.checkbox}>
+                          <CheckBox
+                            label="Agency"
+                            isChecked={this.getField('agency')}
+                            onChange={this.handleChange('agency')}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className={cs.rentFilter}>
-                      <div className={cs.checkbox}>
-                        <CheckBox
-                          label="House"
-                          isChecked={this.getField('house')}
-                          onChange={this.handleChange('house')}
-                        />
+                      <div className={cs.rentFilter}>
+                        <div className={cs.checkbox}>
+                          <CheckBox
+                            label="House"
+                            isChecked={this.getField('house')}
+                            onChange={this.handleChange('house')}
+                          />
+                        </div>
+                        <div className={cs.checkbox}>
+                          <CheckBox
+                            label="Apartments"
+                            isChecked={this.getField('apartments')}
+                            onChange={this.handleChange('apartments')}
+                          />
+                        </div>
+                        <div className={cs.checkbox}>
+                          <CheckBox
+                            label="Places"
+                            isChecked={this.getField('places')}
+                            onChange={this.handleChange('places')}
+                          />
+                        </div>
                       </div>
-                      <div className={cs.checkbox}>
-                        <CheckBox
-                          label="Apartments"
-                          isChecked={this.getField('apartments')}
-                          onChange={this.handleChange('apartments')}
-                        />
+                      <div className={cs.rentFilter}>
+                        <div className={cs.checkbox}>
+                          <CheckBox
+                            label="Only with photo"
+                            isChecked={this.getField('photo')}
+                            onChange={this.handleChange('photo')}
+                          />
+                        </div>
                       </div>
-                      <div className={cs.checkbox}>
-                        <CheckBox
-                          label="Places"
-                          isChecked={this.getField('places')}
-                          onChange={this.handleChange('places')}
-                        />
+                      <div className={cs.rentFilter}>
+                        <div className={cs.checkboxSlide}>
+                          <ListingSlideFloor />
+                        </div>
+                        <div className={cs.checkboxSlide}>
+                          <ListingSlideArea />
+                        </div>
+                        <div className={cs.checkboxSlide}>
+                          <ListingSlide />
+                        </div>
                       </div>
-                    </div>
-                    <div className={cs.rentFilter}>
-                      <div className={cs.checkbox}>
-                        <CheckBox
-                          label="Only with photo"
-                          isChecked={this.getField('photo')}
-                          onChange={this.handleChange('photo')}
-                        />
+                      <div className={cs.rentFilter}>
+                        <div className={cs.checkbox}>
+                          <CheckBox
+                            label="Monthly"
+                            isChecked={this.getField('monthly')}
+                            onChange={this.handleChange('monthly')}
+                          />
+                        </div>
+                        <div className={cs.checkbox}>
+                          <CheckBox
+                            label="Daily"
+                            isChecked={this.getField('daily')}
+                            onChange={this.handleChange('daily')}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className={cs.rentFilter}>
-                      <div className={cs.checkboxSlide}>
-                        <ListingSlideFloor />
+                      <div className={cs.rentFilter}>
+                        <div className={cs.checkbox}>
+                          <LiistingCheckboxnumber />
+                        </div>
                       </div>
-                      <div className={cs.checkboxSlide}>
-                        <ListingSlideArea />
-                      </div>
-                      <div className={cs.checkboxSlide}>
-                        <ListingSlide />
-                      </div>
-                    </div>
-                    <div className={cs.rentFilter}>
-                      <div className={cs.checkbox}>
-                        <CheckBox
-                          label="Monthly"
-                          isChecked={this.getField('monthly')}
-                          onChange={this.handleChange('monthly')}
-                        />
-                      </div>
-                      <div className={cs.checkbox}>
-                        <CheckBox
-                          label="Daily"
-                          isChecked={this.getField('daily')}
-                          onChange={this.handleChange('daily')}
-                        />
-                      </div>
-                    </div>
-                    <div className={cs.rentFilter}>
-                      <div className={cs.checkbox}>
-                        <LiistingCheckboxnumber />
-                      </div>
-                    </div>
+                    </form>
                   </CardBlock>
                 </Card>
               </Collapse>
@@ -160,20 +162,5 @@ class Listing extends FormController {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatCheck: () => {
-      dispatch({ type: 'CHECK' });
-    },
-  };
-};
 
-const mapStateToProps = (state) => {
-  return {
-    dispatCheck: state.dispatCheck,
-  };
-};
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Listing);
+export default connect()(Listing);

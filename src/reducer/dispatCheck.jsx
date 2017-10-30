@@ -1,12 +1,12 @@
 const initialState = {
-  checked: false,
+  isChecked: false,
 };
 const dispatCheck = (state = initialState, action) => {
   switch (action.type) {
     case 'CHECK':
-      alert('gg');
+      console.log('true');
       return {
-        checked: true,
+        isChecked: !state.isChecked,
       };
     default:
       return state;

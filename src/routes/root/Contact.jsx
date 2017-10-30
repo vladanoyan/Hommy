@@ -1,5 +1,8 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import CheckBox from '../../components/CheckBox';
 import SyncValidationFormContact from '../../components/SyncValidationFormContact';
 import showResults from '../../reducer/showResults';
 import cs from './Contact.pcss';
@@ -9,6 +12,13 @@ class Contact extends React.Component {
   render() {
     return (
       <div>
+        <form>
+          <CheckBox
+            label="Private"
+            isChecked={this.props.isChecked}
+            onChange={() => this.props.dispatCheck()}
+          />
+        </form>
         <Container>
           <Row>
             <Col>
@@ -47,4 +57,25 @@ class Contact extends React.Component {
   }
 }
 
-export default Contact;
+Contact.propTypes = {
+  dispatCheck: PropTypes.func.isRequired,
+  isChecked: PropTypes.bool.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatCheck: () => {
+      dispatch({ type: 'CHECK' });
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    isChecked: state.isChecked,
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Contact);
