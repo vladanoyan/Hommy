@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-select/dist/react-select.css';
 import { BrowserRouter } from 'react-router-dom';
@@ -21,7 +22,9 @@ const routes = [
 
 ReactDOM.render(
   <BrowserRouter basename="Hommy/">
-    { renderRoutes(routes) }
+    <MuiThemeProvider>
+      { renderRoutes(routes) }
+    </MuiThemeProvider>
   </BrowserRouter>,
   document.getElementById('root'),
 );

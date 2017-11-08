@@ -1,11 +1,24 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import UnCheckedIcon from 'material-ui/svg-icons/toggle/check-box-outline-blank';
+import CheckedIcon from 'material-ui/svg-icons/toggle/check-box';
+import Checkbox from 'material-ui/Checkbox';
 import Sign from 'react-icons/lib/fa/sign-in';
 import PropTypes from 'prop-types';
 import validate from '../../reducer/validate';
 import asyncValidate from '../../reducer/asyncValidate';
 import cs from './component.pcss';
 
+
+const renderCheckbox = ({ input, label }) => (
+  <Checkbox
+    uncheckedIcon={<UnCheckedIcon style={{ fill: '#e2e4e8' }} />}
+    checkedIcon={<CheckedIcon style={{ fill: '#5f90dd' }} />}
+    label={label}
+    checked={!!input.value}
+    onCheck={input.onChange}
+  />
+);
 const renderField = (
   { input, label, type, meta: { asyncValidating, touched, error } },
 ) => {
@@ -47,6 +60,11 @@ const AsyncValidationForm = (props) => {
         label="Password"
       />
       <div>
+        <Field
+          name="terms"
+          component={renderCheckbox}
+          label="I agree to the terms"
+        />
         <button type="submit" disabled={submitting} className={cs.loginModal}>
           <Sign className={cs.sign_up} />
           Sign Up
@@ -76,6 +94,13 @@ renderField.propTypes = {
 
 };
 
+
+renderCheckbox.propTypes = {
+  label: PropTypes.string.isRequired,
+  input: PropTypes.shape({
+    onChange: PropTypes.func,
+  }).isRequired,
+};
 
 export default reduxForm({
   form: 'AsyncValidationSign',

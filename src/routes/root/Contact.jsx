@@ -9,14 +9,24 @@ import cs from './Contact.pcss';
 
 
 class Contact extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      checked: false,
+    };
+  }
+  handleChange() {
+    this.props.dispatCheck();
+    this.setState({ checked: !this.state.checked });
+  }
   render() {
     return (
       <div>
         <form>
           <CheckBox
             label="Private"
-            isChecked={this.props.isChecked}
-            onChange={() => this.props.dispatCheck()}
+            isChecked={this.state.checked}
+            onChange={this.handleChange.bind(this)}
           />
         </form>
         <Container>
@@ -59,7 +69,6 @@ class Contact extends React.Component {
 
 Contact.propTypes = {
   dispatCheck: PropTypes.func.isRequired,
-  isChecked: PropTypes.bool.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -72,7 +81,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    isChecked: state.isChecked,
+    checked: state.checked,
   };
 };
 export default connect(

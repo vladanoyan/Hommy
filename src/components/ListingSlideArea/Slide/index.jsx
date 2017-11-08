@@ -13,7 +13,7 @@ class Slide extends React.Component {
 
   render() {
     return (
-      <div style={{ width: '100%', height: '60px' }}>
+      <div style={{ width: '100%' }}>
         <RangeSlider
           max={this.state.max}
           min={this.state.min}

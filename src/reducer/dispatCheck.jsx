@@ -4,7 +4,6 @@ const initialState = {
 const dispatCheck = (state = initialState, action) => {
   switch (action.type) {
     case 'CHECK':
-      console.log('true');
       return {
         isChecked: !state.isChecked,
       };

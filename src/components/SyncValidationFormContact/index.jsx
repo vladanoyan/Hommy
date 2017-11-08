@@ -1,5 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { RadioButton } from 'material-ui/RadioButton';
+import { RadioButtonGroup } from 'redux-form-material-ui';
 import IconMail from 'react-icons/lib/md/mail-outline';
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
@@ -43,28 +46,20 @@ const SyncValidationForm = (props) => {
         id="email"
         label="E-mail"
       />
-      <div>
-        <label htmlFor="male">Male</label>
-        <Field
-          className={cs.radio}
-          name="sex"
-          component="input"
-          type="radio"
-          value="male"
-          id="male"
-        />
-      </div>
-      <div>
-        <label htmlFor="famale">Famale</label>
-        <Field
-          className={cs.radio}
-          name="sex"
-          component="input"
-          type="radio"
-          value="famale"
-          id="famale"
-        />
-      </div>
+      <MuiThemeProvider>
+        <Field name="sex" component={RadioButtonGroup}>
+          <RadioButton
+            value="men"
+            label="men"
+            iconStyle={{ fill: '5f90dd' }}
+          />
+          <RadioButton
+            value="famale"
+            label="famale"
+            iconStyle={{ fill: '5f90dd' }}
+          />
+        </Field>
+      </MuiThemeProvider>
       <Field
         className={cs.textarea}
         name="notes"

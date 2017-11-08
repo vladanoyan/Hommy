@@ -1,22 +1,32 @@
 import { Container, Row, Col, Collapse, Button, CardBlock, Card } from 'reactstrap';
 import React from 'react';
 import FilterIcon from 'react-icons/lib/ti/filter';
-import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MyAwesomeReactComponent from '../../components/MyAwesomeReactComponent';
 import FormController from '../../lib/FormController';
 import Address from '../../components/ListingSearch/AdressLine';
-import CheckBox from '../../components/CheckBox';
 import ListingSlide from '../../components/ListingSlide/Slide';
-import ListingSlideFloor from '../../components/ListingSlideFloor/Slide';
+import RangeSlider from '../../components/RangeSlider';
 import ListingSlideArea from '../../components/ListingSlideArea/Slide';
+import ListingSlideFloor from '../../components/ListingSlideFloor/Slide';
 import LiistingCheckboxnumber from '../../components/ListingCheckboxnumber';
 import ListingItem from '../../components/ListingItem';
 import showResults from '../../reducer/showResults';
 import Sort from '../../components/MultiSelect2';
 import Banner from '../../components/Banner';
-import cs from './Listing.pcss';
 import CheckboxBtn from '../../components/ListingCheckboxBtn/CheckboxBtn';
+import cs from './Listing.pcss';
 
+const theme1 = getMuiTheme({
+  slider: {
+    selectionColor: '#5f90dd',
+    trackSize: 5,
+    handleSize: 16,
+    handleSizeActive: 20,
+    rippleColor: '#5f90dd',
+  },
+});
 
 class Listing extends FormController {
   constructor(props) {
@@ -24,12 +34,6 @@ class Listing extends FormController {
     this.toggle = this.toggle.bind(this);
     this.state = {
       form: {
-        private: false,
-        agency: false,
-        house: false,
-        apartments: false,
-        places: false,
-        photo: false,
         sale: false,
         rent: false,
         trade: false,
@@ -55,92 +59,47 @@ class Listing extends FormController {
               <Collapse isOpen={this.state.collapse} className={cs.collapse}>
                 <Card>
                   <CardBlock className={cs.CardBlock}>
-                    <form>
-                      <Address />
-                      <div className={cs.rentFilter}>
-                        <CheckboxBtn />
+                    <Address />
+                    <div className={cs.rentFilter}>
+                      <CheckboxBtn />
+                    </div>
+                    <div className={cs.rentFilter}>
+                      <MyAwesomeReactComponent name="Private" label="Private" />
+                      <MyAwesomeReactComponent name="Agency" label="Agency" />
+                    </div>
+                    <div className={cs.rentFilter}>
+                      <MyAwesomeReactComponent name="House" label="House" />
+                      <MyAwesomeReactComponent name="Apartments" label="Apartments" />
+                      <MyAwesomeReactComponent name="Places" label="Places" />
+                    </div>
+                    <div className={cs.rentFilter}>
+                      <MyAwesomeReactComponent name="Photo" label="Only with photo" />
+                    </div>
+                    <div className={cs.rentFilter}>
+                      <div className={cs.checkboxSlide}>
+                        <MuiThemeProvider muiTheme={theme1}>
+                          <RangeSlider textSlider="Floor" min={0} max={100} />
+                        </MuiThemeProvider>
                       </div>
-                      <div className={cs.rentFilter}>
-                        <div className={cs.checkbox}>
-                          <CheckBox
-                            label="Private"
-                            isChecked={this.getField('private')}
-                            onChange={this.handleChange('private')}
-                          />
-                        </div>
-                        <div className={cs.checkbox}>
-                          <CheckBox
-                            label="Agency"
-                            isChecked={this.getField('agency')}
-                            onChange={this.handleChange('agency')}
-                          />
-                        </div>
+                      <div className={cs.checkboxSlide}>
+                        <ListingSlideFloor />
                       </div>
-                      <div className={cs.rentFilter}>
-                        <div className={cs.checkbox}>
-                          <CheckBox
-                            label="House"
-                            isChecked={this.getField('house')}
-                            onChange={this.handleChange('house')}
-                          />
-                        </div>
-                        <div className={cs.checkbox}>
-                          <CheckBox
-                            label="Apartments"
-                            isChecked={this.getField('apartments')}
-                            onChange={this.handleChange('apartments')}
-                          />
-                        </div>
-                        <div className={cs.checkbox}>
-                          <CheckBox
-                            label="Places"
-                            isChecked={this.getField('places')}
-                            onChange={this.handleChange('places')}
-                          />
-                        </div>
+                      <div className={cs.checkboxSlide}>
+                        <ListingSlideArea />
                       </div>
-                      <div className={cs.rentFilter}>
-                        <div className={cs.checkbox}>
-                          <CheckBox
-                            label="Only with photo"
-                            isChecked={this.getField('photo')}
-                            onChange={this.handleChange('photo')}
-                          />
-                        </div>
+                      <div className={cs.checkboxSlide}>
+                        <ListingSlide />
                       </div>
-                      <div className={cs.rentFilter}>
-                        <div className={cs.checkboxSlide}>
-                          <ListingSlideFloor />
-                        </div>
-                        <div className={cs.checkboxSlide}>
-                          <ListingSlideArea />
-                        </div>
-                        <div className={cs.checkboxSlide}>
-                          <ListingSlide />
-                        </div>
+                    </div>
+                    <div className={cs.rentFilter}>
+                      <MyAwesomeReactComponent name="Monthly" label="Monthly" />
+                      <MyAwesomeReactComponent name="Daily" label="Daily" />
+                    </div>
+                    <div className={cs.rentFilter}>
+                      <div className={cs.checkbox}>
+                        <LiistingCheckboxnumber />
                       </div>
-                      <div className={cs.rentFilter}>
-                        <div className={cs.checkbox}>
-                          <CheckBox
-                            label="Monthly"
-                            isChecked={this.getField('monthly')}
-                            onChange={this.handleChange('monthly')}
-                          />
-                        </div>
-                        <div className={cs.checkbox}>
-                          <CheckBox
-                            label="Daily"
-                            isChecked={this.getField('daily')}
-                            onChange={this.handleChange('daily')}
-                          />
-                        </div>
-                      </div>
-                      <div className={cs.rentFilter}>
-                        <div className={cs.checkbox}>
-                          <LiistingCheckboxnumber />
-                        </div>
-                      </div>
-                    </form>
+                    </div>
                   </CardBlock>
                 </Card>
               </Collapse>
@@ -163,4 +122,4 @@ class Listing extends FormController {
   }
 }
 
-export default connect()(Listing);
+export default (Listing);
