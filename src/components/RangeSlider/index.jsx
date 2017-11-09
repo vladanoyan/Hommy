@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { Slider } from 'redux-form-material-ui';
@@ -36,13 +36,20 @@ RangeSlider.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
 };
+//
+//
+// RangeSlider = connect(state => ({
+//   numSlider: selector(state, 'Slide'),
+// }))(RangeSlider);
 
-RangeSlider = connect(state => ({
-  numSlider: selector(state, 'Slide'),
-}))(RangeSlider);
-
+const mapStateToProps = (state) => {
+  return {
+    numSlider: selector(state, 'Slide'),
+  };
+};
 export default reduxForm({
   form: 'example',
+  mapStateToProps,
   initialValues: {
     Slide: 100,
   },

@@ -16,7 +16,7 @@ class Contact extends React.Component {
     };
   }
   handleChange() {
-    this.props.dispatCheck();
+    this.props.lll();
     this.setState({ checked: !this.state.checked });
   }
   render() {
@@ -25,7 +25,7 @@ class Contact extends React.Component {
         <form>
           <CheckBox
             label="Private"
-            isChecked={this.state.checked}
+            isChecked={this.props.checked}
             onChange={this.handleChange.bind(this)}
           />
         </form>
@@ -68,12 +68,13 @@ class Contact extends React.Component {
 }
 
 Contact.propTypes = {
-  dispatCheck: PropTypes.func.isRequired,
+  lll: PropTypes.func.isRequired,
+  checked: PropTypes.bool.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    dispatCheck: () => {
+    lll: () => {
       dispatch({ type: 'CHECK' });
     },
   };
@@ -81,7 +82,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    checked: state.checked,
+    checked: state.dispatCheck.isChecked,
   };
 };
 export default connect(

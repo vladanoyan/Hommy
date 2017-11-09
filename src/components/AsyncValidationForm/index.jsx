@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { NavLink } from 'react-router-dom';
 import UnCheckedIcon from 'material-ui/svg-icons/toggle/check-box-outline-blank';
 import CheckedIcon from 'material-ui/svg-icons/toggle/check-box';
 import Checkbox from 'material-ui/Checkbox';
@@ -63,7 +64,12 @@ const AsyncValidationForm = (props) => {
         <Field
           name="terms"
           component={renderCheckbox}
-          label="I agree to the terms"
+          label={
+            <div>
+              I agree to the{' '}
+              <NavLink to="/app/terms" className={cs.terms}>Terms</NavLink>
+            </div>
+          }
         />
         <button type="submit" disabled={submitting} className={cs.loginModal}>
           <Sign className={cs.sign_up} />
@@ -96,7 +102,9 @@ renderField.propTypes = {
 
 
 renderCheckbox.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.shape({
+    label: PropTypes.object,
+  }).isRequired,
   input: PropTypes.shape({
     onChange: PropTypes.func,
   }).isRequired,
