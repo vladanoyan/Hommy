@@ -106,7 +106,9 @@ class Listing extends FormController {
                   </CardBlock>
                 </Card>
               </Collapse>
-              <Banner />
+              <div className={cs.banner}>
+                <Banner />
+              </div>
             </Col>
             <Col xs="12" md="9" sm="8">
               <Col

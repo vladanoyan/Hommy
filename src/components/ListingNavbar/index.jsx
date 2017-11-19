@@ -42,7 +42,7 @@ class NavbarMenu extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className={cs.navContent}>
         <Navbar light toggleable className={cs.Navbar}>
           <TiIconPack className={cs.icon} onClick={this.toggle} />
           <NavItem>

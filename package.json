@@ -52,6 +52,7 @@
     "availity-reactstrap-validation": "^1.4.3",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.0.0-alpha.6",
+    "classnames": "^2.2.5",
     "history": "^4.6.3",
     "immutable": "^3.8.1",
     "material-ui": "^0.19.4",

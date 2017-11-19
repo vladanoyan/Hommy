@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { NavItem } from 'reactstrap';
+import Share from 'react-icons/lib/fa/mail-forward';
 import Flex, { Col } from '../../components/Flex';
 import { Button } from '../../components/Form';
 import Icon from '../../components/Icon';
@@ -66,6 +67,11 @@ const ListingGridView = (props) => {
             <div>
               <NavItem>
                 <NavLink to={props.detailsUrl}><Button>View Details</Button></NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to={props.detailsUrl}>
+                  <Button>Share <Share className={cs.share} /></Button>
+                </NavLink>
               </NavItem>
             </div>
           </Flex>
