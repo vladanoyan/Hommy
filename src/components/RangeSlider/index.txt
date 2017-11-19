@@ -1,0 +1,34 @@
+import React from 'react';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RangeSlider from '../../components/RangeSlider';
+
+import cs from './Listing.pcss';
+
+const theme1 = getMuiTheme({
+  slider: {
+    selectionColor: '#5f90dd',
+    trackSize: 5,
+    handleSize: 16,
+    handleSizeActive: 20,
+    rippleColor: '#5f90dd',
+  },
+});
+class Listing extends FormController {
+
+  render() {
+
+    return (
+      <div>
+
+        <MuiThemeProvider muiTheme={theme1}>
+          <RangeSlider textSlider="Floor" min={0} max={100} />
+        </MuiThemeProvider>
+
+      </div>
+    );
+  }
+}
+
+export default connect(
+)(Listing);

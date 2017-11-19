@@ -1,5 +1,4 @@
 import React from 'react';
-import Sign from 'react-icons/lib/fa/sign-in';
 import { NavLink } from 'react-router-dom';
 import TiIconPack from 'react-icons/lib/fa/align-justify';
 import {
@@ -7,12 +6,14 @@ import {
   Navbar,
   Nav,
   NavItem,
-  NavLink as Link,
 } from 'reactstrap';
 import ModalSign from '../../components/ModalSign';
 import ModalLogin from '../../components/ModalLogin';
 import LogoBar from '../../resource/images/logoBar.png';
+import LoginSignButton from '../Buttons/LoginSignComponentButton/index';
 import cs from './component.pcss';
+// import Account from '../../components/MyAccount';
+
 
 class NavbarMenu extends React.Component {
   constructor(props) {
@@ -60,14 +61,10 @@ class NavbarMenu extends React.Component {
               <NavItem>
                 <NavLink activeClassName={`${cs.active1}`} to="/app/terms" className={cs.link}>Terms of Service</NavLink>
               </NavItem>
-              <NavItem>
-                <Link className={cs.login} onClick={this.toggleModal.bind(this)}>
-                  <Sign className={cs.sign_up} />Log In</Link>
-              </NavItem>
-              <NavItem>
-                <Link className={cs.sign} onClick={this.toggleModalSI.bind(this)}>
-                  Sign Up</Link>
-              </NavItem>
+              <LoginSignButton
+                toggleModal={this.toggleModal.bind(this)}
+                toggleModalSI={this.toggleModalSI.bind(this)}
+              />
             </Nav>
           </Collapse>
         </Navbar>

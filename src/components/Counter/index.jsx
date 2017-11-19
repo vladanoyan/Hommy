@@ -5,11 +5,11 @@ import cs from './component.pcss';
 
 class Counter extends Component {
   render() {
-    const { value, onIncrement } = this.props;
+    const { value, onIncrement, classActive } = this.props;
     return (
       <div className={cs.LikeBlock} >
         {' '}
-        <LikeUp onClick={onIncrement} className={cs.Like} />
+        <LikeUp onClick={onIncrement} className={classActive} />
         <span className={cs.Dislike}>{value}</span>
       </div>
     );
@@ -19,6 +19,7 @@ class Counter extends Component {
 Counter.propTypes = {
   value: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
+  classActive: PropTypes.string.isRequired,
 };
 
 export default Counter;

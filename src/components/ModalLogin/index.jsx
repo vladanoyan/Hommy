@@ -54,7 +54,7 @@ class Modal extends React.Component {
                 isOpen={this.state.nestedModal}
                 toggle={this.toggleNested.bind(this)}
               >
-                <ModalBody>
+                <ModalBody className={cs.recov}>
                   <div className={cs.modalsecondHeader}>
                     Password recovery
                     <Cloes className={cs.cloes} onClick={this.toggleNested.bind(this)} />

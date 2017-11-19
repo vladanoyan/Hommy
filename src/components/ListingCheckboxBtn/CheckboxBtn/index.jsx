@@ -1,8 +1,22 @@
 import React from 'react';
-import { Button, ButtonGroup } from 'reactstrap';
-import cs from './CheckboxBtn.pcss';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import cs from './component.pcss';
 
-
+const radioList = [
+  {
+    name: 'Sale',
+    id: 1,
+  },
+  {
+    name: 'Rent',
+    id: 2,
+  },
+  {
+    name: 'Trade',
+    id: 3,
+  },
+];
 class CheckboxBtn extends React.Component {
   constructor(props) {
     super(props);
@@ -15,47 +29,57 @@ class CheckboxBtn extends React.Component {
   }
 
   onRadioBtnClick(rSelected) {
-    this.setState({ rSelected });
+    this.props.dispatchRadioHome(rSelected);
   }
   render() {
-    const current = this.state.rSelected;
-    const getClass = (name, index) => {
-      if (index === current) {
+    const { value } = this.props;
+    const getClass = (name, item) => {
+      if (item === value) {
         return `${name} ${cs.active1}`;
       }
       return name;
     };
+    const radioButtonGroup = radioList.map(item => (
+      <div
+        role="presentation"
+        key={item.id}
+        onClick={() => this.onRadioBtnClick(item)}
+        className={getClass(`${cs.CheckboxBtn}`, item)}
+      >
+        {item.name}</div>),
+    );
     return (
-      <div>
-        <ButtonGroup className={cs.group}>
-          <Button
-            className={getClass(`${cs.CheckboxBtn}`, 1)}
-            color=""
-            onClick={() => this.onRadioBtnClick(1)}
-            active={this.state.rSelected === 1}
-          >
-            Sale
-          </Button>
-          <Button
-            className={getClass(`${cs.CheckboxBtn}`, 2)}
-            color=""
-            onClick={() => this.onRadioBtnClick(2)}
-            active={this.state.rSelected === 2}
-          >
-            Rent
-          </Button>
-          <Button
-            className={getClass(`${cs.CheckboxBtn}`, 3)}
-            color=""
-            onClick={() => this.onRadioBtnClick(3)}
-            active={this.state.rSelected === 3}
-          >
-            Trade
-          </Button>
-        </ButtonGroup>
+      <div >
+        <div className={cs.box}>
+          {radioButtonGroup}
+        </div>
       </div>
     );
   }
 }
 
-export default CheckboxBtn;
+CheckboxBtn.propTypes = {
+  dispatchRadioHome: PropTypes.func.isRequired,
+  value: PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number,
+  }).isRequired,
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatchRadioHome: (item) => {
+      dispatch({ type: 'GET_RADIO_STATUS_LISTING', item });
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    value: state.dispatchRadioHome,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CheckboxBtn);

@@ -5,22 +5,23 @@ import cs from './component.pcss';
 
 class CounterDe extends Component {
   render() {
-    const { value1, onDecrement } = this.props;
+    const { value, onDecrement, classActive } = this.props;
     return (
       <div className={cs.LikeBlock}>
         {' '}
         <Like
           onClick={onDecrement}
-          className={cs.Like}
+          className={classActive}
         />
-        <span className={cs.Dislike}>{value1}</span>
+        <span className={cs.Dislike}>{value}</span>
       </div>
     );
   }
 }
 
 CounterDe.propTypes = {
-  value1: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+  classActive: PropTypes.string.isRequired,
   onDecrement: PropTypes.func.isRequired,
 };
 export default CounterDe;

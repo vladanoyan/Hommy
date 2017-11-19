@@ -3,6 +3,7 @@ import HomePage from './HomePage';
 import Listing from './Listing';
 import Contact from './Contact';
 import Terms from './Terms';
+import Account from './Account';
 import ListingDetails from './ListingDetails';
 
 export default [
@@ -23,6 +24,9 @@ export default [
       },
       { path: '/app/terms',
         component: Terms,
+      },
+      { path: '/app/Account',
+        component: Account,
       },
       { path: '/app/listing/:listingId/details',
         component: ListingDetails,

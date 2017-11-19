@@ -1,8 +1,9 @@
 .box{
-  background-color: rgba(0, 0, 0, 0.55);
   border-radius: 25px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.63);
+  width: max-content;
+  margin: 0 auto;
 }
 .CheckboxBtn {
   color: #5f90dd;
@@ -13,11 +14,26 @@
   border: none;
   border-radius: 0;
   position: relative;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.55);
+
+
+}
+.activeHome{
+  outline: none;
+  font-size: responsive 15px 20px;
+  transition: 0.25s;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 0;
+  position: relative;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #fff;
 }
 .CheckboxBtn:active,
 .CheckboxBtn:hover,
-.CheckboxBtn:focus,
-.activeHome
+.CheckboxBtn:focus
   {
   background-color: rgba(255, 255, 255, 0.2) !important;
   color: #fff;

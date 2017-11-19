@@ -10,8 +10,24 @@ import AddTodo from '../../components/Comment/AddTodo';
 import VisibleTodoList from '../../components/Comment/VisibleTodoList';
 import cs from './ListingDetails.pcss';
 
-class Contact extends React.Component {
-
+class ListingDetail extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isChecked: false,
+    };
+  }
+  onIncrement() {
+    this.setState({ isChecked: true },
+    this.state.isChecked ? null : this.props.dispatchIn(),
+  );
+  }
+  onDecrement(e) {
+    e.target.style.color = '#5f90dd';
+    this.setState({ isChecked: true },
+      this.state.isChecked ? null : this.props.dispatchDe(),
+  );
+  }
   render() {
     return (
       <Container className={cs.listDetl}>
@@ -19,12 +35,14 @@ class Contact extends React.Component {
           <Col sm="12" md="7" xs="12">
             <Carousel />
             <CounterIn
+              classActive={cs.Like}
               value={this.props.counter}
-              onIncrement={() => this.props.dispatchIn()}
+              onIncrement={this.onIncrement.bind(this)}
             />
             <CounterDe
-              value1={this.props.counterDe}
-              onDecrement={() => this.props.dispatchDe()}
+              classActive={cs.Like}
+              value={this.props.counterDe}
+              onDecrement={this.onDecrement.bind(this)}
             />
             <AddTodo />
             <VisibleTodoList />
@@ -39,7 +57,7 @@ class Contact extends React.Component {
 }
 
 
-Contact.propTypes = {
+ListingDetail.propTypes = {
   dispatchIn: PropTypes.func.isRequired,
   dispatchDe: PropTypes.func.isRequired,
   counter: PropTypes.number.isRequired,
@@ -67,4 +85,4 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Contact);
+)(ListingDetail);

@@ -1,0 +1,49 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import CheckBox from '../../components/CheckBox';
+import cs from './Contact.pcss';
+
+
+class Contact extends React.Component {
+
+  handleChange() {
+    this.props.Check();
+  }
+  render() {
+    return (
+      <div>
+        <form>
+          <CheckBox
+            label="Private"
+            isChecked={this.props.checked}
+            onChange={this.handleChange.bind(this)}
+          />
+        </form>
+      </div>
+    );
+  }
+}
+
+Contact.propTypes = {
+  Check: PropTypes.func.isRequired,
+  checked: PropTypes.bool.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    Check: () => {
+      dispatch({ type: 'CHECK' });
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    checked: state.dispatCheck.isChecked,
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Contact);

@@ -1,1 +1,0 @@
-# Drag handlers for RangeSlider component

@@ -5,7 +5,7 @@
   margin-bottom: 10px;
 }
 .button{
-  background-color: rgba(95, 144, 221, 0.54);
+  background-color: rgb(165, 194, 239)!important;
   color: #fff;
   outline: none;
   font-size: responsive 14px 16px;
@@ -15,15 +15,27 @@
   width: 20%;
   height:auto;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding:0;
+  display: inline-block;
+}
+.activeclass{
+  display: inline-block;
+  background-color: rgb(95, 144, 221)!important;
+  color: #fff;
+  outline: none;
+  font-size: responsive 14px 16px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  border: 1px solid #ebebeb!important;
+  width: 20%;
+  height:auto;
+  margin: 0 auto;
   padding:0;
 }
-.button:hover,.button:focus,.button:active{
+.button:hover,.button:focus{
   -webkit-box-shadow: 0 0 0 20px rgba(95, 144, 221, 0);
   box-shadow: 0 0 0 20px rgba(95, 144, 221, 0);
-  background-color: rgb(95, 144, 221)!important;
+  background-color: rgb(95, 144, 221);
   color: #fff!important;
   border: 1px solid #ebebeb!important;
 

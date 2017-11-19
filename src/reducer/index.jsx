@@ -5,6 +5,8 @@ import counterDe from './counterDe';
 import counter from './counter';
 import visibilityFilter from './visibilityFilter';
 import dispatCheck from './dispatCheck';
+import radioDispatch from './radioDispatch';
+import dispatchRadioHome from './dispatchRadioHome';
 
 
 export default combineReducers({
@@ -14,4 +16,6 @@ export default combineReducers({
   counterDe,
   counter,
   dispatCheck,
+  radioDispatch,
+  dispatchRadioHome,
 });

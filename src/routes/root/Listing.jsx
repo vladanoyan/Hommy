@@ -1,52 +1,38 @@
 import { Container, Row, Col, Collapse, Button, CardBlock, Card } from 'reactstrap';
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import FilterIcon from 'react-icons/lib/ti/filter';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MyAwesomeReactComponent from '../../components/MyAwesomeReactComponent';
 import FormController from '../../lib/FormController';
 import Address from '../../components/ListingSearch/AdressLine';
-import ListingSlide from '../../components/ListingSlide/Slide';
-import RangeSlider from '../../components/RangeSlider';
-import ListingSlideArea from '../../components/ListingSlideArea/Slide';
-import ListingSlideFloor from '../../components/ListingSlideFloor/Slide';
+import ListingSlideFloor from '../../components/ListingSlideRange/Slide';
 import LiistingCheckboxnumber from '../../components/ListingCheckboxnumber';
 import ListingItem from '../../components/ListingItem';
 import showResults from '../../reducer/showResults';
 import Sort from '../../components/MultiSelect2';
 import Banner from '../../components/Banner';
 import CheckboxBtn from '../../components/ListingCheckboxBtn/CheckboxBtn';
+import MinMax from '../../components/ListingMinMaxInput';
 import cs from './Listing.pcss';
-
-const theme1 = getMuiTheme({
-  slider: {
-    selectionColor: '#5f90dd',
-    trackSize: 5,
-    handleSize: 16,
-    handleSizeActive: 20,
-    rippleColor: '#5f90dd',
-  },
-});
 
 class Listing extends FormController {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      form: {
-        sale: false,
-        rent: false,
-        trade: false,
-        monthly: false,
-        daily: false,
-      },
       collapse: true,
+      value: { min: 0, max: 100 },
     };
   }
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
   render() {
+    const handleChange = (e) => {
+      const listCheched = [...e];
+      return listCheched;
+    };
     return (
       <div>
         <Container fluid className={cs.listingBackground}>
@@ -77,18 +63,31 @@ class Listing extends FormController {
                     </div>
                     <div className={cs.rentFilter}>
                       <div className={cs.checkboxSlide}>
-                        <MuiThemeProvider muiTheme={theme1}>
-                          <RangeSlider textSlider="Floor" min={0} max={100} />
-                        </MuiThemeProvider>
+                        <ListingSlideFloor
+                          min={0}
+                          max={100}
+                          textSlider={'Floor'}
+                          value={this.state.value}
+                          onChange={value => this.setState({ value })}
+                        />
                       </div>
                       <div className={cs.checkboxSlide}>
-                        <ListingSlideFloor />
+                        <MinMax
+                          min={'-'}
+                          max={'$'}
+                          nameMax={'priceNameMax'}
+                          nameMin={'priceNameMin'}
+                          textSlider={'Price'}
+                        />
                       </div>
                       <div className={cs.checkboxSlide}>
-                        <ListingSlideArea />
-                      </div>
-                      <div className={cs.checkboxSlide}>
-                        <ListingSlide />
+                        <MinMax
+                          min={'-'}
+                          max={'sq'}
+                          nameMax={'areaNameMax'}
+                          nameMin={'areaNameMin'}
+                          textSlider={'Total Area'}
+                        />
                       </div>
                     </div>
                     <div className={cs.rentFilter}>
@@ -97,7 +96,11 @@ class Listing extends FormController {
                     </div>
                     <div className={cs.rentFilter}>
                       <div className={cs.checkbox}>
-                        <LiistingCheckboxnumber />
+                        <LiistingCheckboxnumber
+                          onClick={() => this.props.dispatchList()}
+                          list={this.props.list}
+                          onChange={handleChange}
+                        />
                       </div>
                     </div>
                   </CardBlock>
@@ -122,4 +125,32 @@ class Listing extends FormController {
   }
 }
 
-export default (Listing);
+
+Listing.propTypes = {
+  dispatchList: PropTypes.func.isRequired,
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.number,
+    }),
+  ),
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatchList: () => {
+      dispatch({ type: 'GET_LIST' });
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    list: state.radioDispatch,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Listing);
