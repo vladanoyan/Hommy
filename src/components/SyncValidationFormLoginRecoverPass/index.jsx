@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
+import LoginIcon from 'react-icons/lib/fa/key';
 import validate from '../../reducer/syncValidate';
 import cs from './component.pcss';
 
@@ -17,12 +18,15 @@ const SyncValidationForm = (props) => {
   const { handleSubmit, submitting } = props;
   return (
     <form onSubmit={handleSubmit} className={cs.form}>
-      <Field
-        name="email"
-        type="email"
-        component={renderField}
-        label="E-mail"
-      />
+      <div className={cs.iconRelative}>
+        <Field
+          name="email"
+          type="email"
+          component={renderField}
+          label="E-mail"
+        />
+        <LoginIcon className={cs.inputIcon} />
+      </div>
       <div>
         <button type="submit" disabled={submitting} className={cs.loginModal}>
           Send

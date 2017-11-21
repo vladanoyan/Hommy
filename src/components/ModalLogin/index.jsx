@@ -36,10 +36,16 @@ class Modal extends React.Component {
         <BootstrapModal
           isOpen={this.props.modal}
           toggle={this.props.toggle}
+          fade={false}
           className={cs.modalDialog}
         >
           <ModalBody className={cs.modalContent}>
+            <div className={cs.Second}>
+              <img src={Image} className={cs.homeIMG} alt="IMG" />
+              <img src={LogoBar} className={cs.logo} alt="logo" />
+            </div>
             <div className={cs.First}>
+              <Cloes className={cs.cloes} onClick={this.props.toggle} />
               <div className={cs.modallog}>Log In Your Account</div>
               <SyncValidationForm onSubmit={showResults} />
               <FacebookBTN />
@@ -53,6 +59,8 @@ class Modal extends React.Component {
               <BootstrapModal
                 isOpen={this.state.nestedModal}
                 toggle={this.toggleNested.bind(this)}
+                className={cs.modalDialog2}
+                fade={false}
               >
                 <ModalBody className={cs.recov}>
                   <div className={cs.modalsecondHeader}>
@@ -62,11 +70,6 @@ class Modal extends React.Component {
                   <SyncValidationFormRecoverPass onSubmit={showResults} />
                 </ModalBody>
               </BootstrapModal>
-            </div>
-            <div className={cs.Second}>
-              <Cloes className={cs.cloes} onClick={this.props.toggle} />
-              <img src={Image} className={cs.homeIMG} alt="IMG" />
-              <img src={LogoBar} className={cs.logo} alt="logo" />
             </div>
           </ModalBody>
         </BootstrapModal>

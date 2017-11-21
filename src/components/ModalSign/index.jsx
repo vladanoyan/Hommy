@@ -35,17 +35,18 @@ class Modal extends React.Component {
           isOpen={this.props.modal}
           toggle={this.props.toggle}
           className={cs.modalDialog}
+          fade={false}
         >
           <ModalBody className={cs.modalContent}>
+            <div className={cs.Second}>
+              <img src={Image} className={cs.homeIMG} alt="IMG" />
+              <img src={LogoBar} className={cs.logo} alt="logo" />
+            </div>
             <div className={cs.First}>
+              <Cloes className={cs.cloes} onClick={this.props.toggle} />
               <div className={cs.modallog}>Sign Up New Account</div>
               <AsyncValidationForm onSubmit={showResults} />
               <FacebookBTN />
-            </div>
-            <div className={cs.Second}>
-              <Cloes className={cs.cloes} onClick={this.props.toggle} />
-              <img src={Image} className={cs.homeIMG} alt="IMG" />
-              <img src={LogoBar} className={cs.logo} alt="logo" />
             </div>
           </ModalBody>
         </BootstrapModal>

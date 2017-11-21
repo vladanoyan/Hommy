@@ -5,6 +5,10 @@ import UnCheckedIcon from 'material-ui/svg-icons/toggle/check-box-outline-blank'
 import CheckedIcon from 'material-ui/svg-icons/toggle/check-box';
 import Checkbox from 'material-ui/Checkbox';
 import Sign from 'react-icons/lib/fa/sign-in';
+import LoginIcon from 'react-icons/lib/fa/key';
+import LoginUser from 'react-icons/lib/fa/user';
+import Password from 'react-icons/lib/md/lock';
+import Confirm from 'react-icons/lib/md/lock-open';
 import PropTypes from 'prop-types';
 import validate from '../../reducer/validate';
 import asyncValidate from '../../reducer/asyncValidate';
@@ -13,7 +17,7 @@ import cs from './component.pcss';
 
 const renderCheckbox = ({ input, label }) => (
   <Checkbox
-    uncheckedIcon={<UnCheckedIcon style={{ fill: '#e2e4e8' }} />}
+    uncheckedIcon={<UnCheckedIcon style={{ fill: '#464a4c' }} />}
     checkedIcon={<CheckedIcon style={{ fill: '#5f90dd' }} />}
     label={label}
     checked={!!input.value}
@@ -36,30 +40,51 @@ const AsyncValidationForm = (props) => {
   const { handleSubmit, submitting } = props;
   return (
     <form onSubmit={handleSubmit} className={cs.form}>
-      <Field
-        name="firstname"
-        type="text"
-        component={renderField}
-        label="First Name"
-      />
-      <Field
-        name="lastname"
-        type="text"
-        component={renderField}
-        label="Last Name"
-      />
-      <Field
-        name="email"
-        type="email"
-        component={renderField}
-        label="E-mail"
-      />
-      <Field
-        name="password"
-        type="password"
-        component={renderField}
-        label="Password"
-      />
+      <div className={cs.iconRelative}>
+        <Field
+          name="firstname"
+          type="text"
+          component={renderField}
+          label="First Name"
+        />
+        <LoginUser className={cs.inputIcon} />
+      </div>
+      <div className={cs.iconRelative}>
+        <Field
+          name="lastname"
+          type="text"
+          component={renderField}
+          label="Last Name"
+        />
+        <LoginUser className={cs.inputIcon} />
+      </div>
+      <div className={cs.iconRelative}>
+        <Field
+          name="email"
+          type="email"
+          component={renderField}
+          label="E-mail"
+        />
+        <LoginIcon className={cs.inputIcon} />
+      </div>
+      <div className={cs.iconRelative}>
+        <Field
+          name="password"
+          type="password"
+          component={renderField}
+          label="Password"
+        />
+        <Confirm className={cs.inputIcon} />
+      </div>
+      <div className={cs.iconRelative}>
+        <Field
+          name="password"
+          type="password"
+          component={renderField}
+          label="Confirm Password"
+        />
+        <Password className={cs.inputIcon} />
+      </div>
       <div>
         <Field
           name="terms"

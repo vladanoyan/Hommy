@@ -1,11 +1,8 @@
-.recov{
-  border: 1px solid #5f90dd;
-  border-radius: 3px;
-}
+
 .forgot{
-  color: #464a4c;
+  color: #777777;
   font-size: 12px;
-  margin:10px;
+  margin-top:20px;
   cursor: pointer;
 }
 .forgot:hover{
@@ -23,7 +20,7 @@
 .modalContent{
   width: 100%;
   padding: 0;
-  border: 1px solid #5f90dd;
+  border: none;
   border-radius: 3px;
   display: flex;
   justify-content: center;
@@ -33,15 +30,15 @@
 }
 .logo{
   position: absolute;
-  right: 15px;
+  left: 15px;
   bottom: 15px;
   width: 30px
 }
 .cloes{
   position: absolute;
-  top: 5px;
+  top: 0;
   right: 5px;
-  color: #5f90dd;
+  color: #777777;
   font-weight: 700;
   font-size: 20px;
 
@@ -49,6 +46,7 @@
 .homeIMG{
   width: 100%;
   margin: 0 auto;
+  border:1px solid #fff;
 }
 @media (min-width: 767px)  {
   .modalDialog {
@@ -68,9 +66,37 @@
   padding: 10px;
   width: 100%;
 }
+.Second{
+  position: relative;
+}
+
 .modallog{
   color: #5f90dd;
   font-size: 20px;
   font-weight: 700;
   padding-bottom: 10px;
+}
+.modalDialog2>div{
+  border:1px solid rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.modalDialog>div{
+  border:1px solid rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.modalDialog, .modalDialog2 {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }

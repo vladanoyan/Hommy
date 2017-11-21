@@ -1,19 +1,17 @@
-.form>div>div>span {
+.form>div>div>div>span {
   border: none;
   font-weight: 700;
   color: #700;
   display: block;
   text-align: left;
   position: absolute;
-  top:10px;
+  top:5px;
   right:10px;
   font-size: responsive 12px 14px;
 
 }
-.form>div>div{
-position: relative;
-}
-.form>div>div>span:before{
+
+.form>div>div>div>span:before{
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   text-rendering: auto;
@@ -36,17 +34,28 @@ position: relative;
 .form input{
   display: block;
   width: 100%;
-  padding: 0.5rem 0.75rem;
+  padding: 5px 10px 5px 40px;
   font-size: 1rem;
   line-height: 1.25;
   color: #464a4c;
-  background-color: #fff;
-  background-image: none;
+  background: linear-gradient(to right, #ffffff08, #ffffff, #ffffff08);
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border: none;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   margin-bottom: 10px;
+}
+.iconRelative{
+  position: relative;
+}
+.inputIcon{
+  position: absolute;
+  left:5px;
+  top:7px;
+  color:#464a4c;
+  cursor: pointer;
+}
+.inputIcon:hover{
+  color:#5f90dd;
 }
 .form input:focus{
   border-color: rgba(95, 144, 221, 0.55);
@@ -70,7 +79,7 @@ position: relative;
   cursor: pointer;
   width: 100%;
   margin: 10px 0;
-  background: #fff;
+  background: linear-gradient(to right, #ffffff8c, #ffffff, #ffffff8c);
   position: relative;
   top:0;
 }
