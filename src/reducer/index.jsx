@@ -7,6 +7,7 @@ import visibilityFilter from './visibilityFilter';
 import dispatCheck from './dispatCheck';
 import radioDispatch from './radioDispatch';
 import dispatchRadioHome from './dispatchRadioHome';
+import fields from './fields';
 
 
 export default combineReducers({
@@ -18,4 +19,5 @@ export default combineReducers({
   dispatCheck,
   radioDispatch,
   dispatchRadioHome,
+  fields,
 });

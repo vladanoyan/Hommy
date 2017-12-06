@@ -5,11 +5,14 @@ import {
   Col,
 } from 'reactstrap';
 import AcSet from 'react-icons/lib/fa/cogs';
+// import Plus from 'react-icons/lib/fa/plus-square';
 import Heart from 'react-icons/lib/fa/heart';
 import Listing from 'react-icons/lib/fa/building';
+import AsyncValidationForm from '../../components/AccountSetting';
+import FileUploader from '../../components/Form/FileInputRedux';
+import showResults from '../../reducer/showResults';
 import ListingItem from '../../components/ListingItem';
 import cs from './Account.pcss';
-
 
 class Account extends React.Component {
   constructor(props) {
@@ -69,17 +72,28 @@ class Account extends React.Component {
           </Row>
           <Row className={this.state.activeTab === 1 ? `${cs.activeBlock}` : `${cs.block}`}>
             <Col sm="12">
-              <h4>Tab 111 Contents</h4>
+              <h4 className={cs.title}>Your listings list</h4>
             </Col>
           </Row>
           <Row className={this.state.activeTab === 2 ? `${cs.activeBlock}` : `${cs.block}`}>
+            <Col sm="12">
+              <h4 className={cs.title}>Your favorite listings</h4>
+            </Col>
             <Col sm="12">
               <ListingItem />
             </Col>
           </Row>
           <Row className={this.state.activeTab === 3 ? `${cs.activeBlock}` : `${cs.block}`}>
             <Col sm="12">
-              <h4>Tab 333 Contents</h4>
+              <h4 className={cs.title}>Modify your settings</h4>
+            </Col>
+            <Col xs="12" md="6" sm="6">
+              <div className="text-center">
+                <FileUploader />
+              </div>
+            </Col>
+            <Col xs="12" md="6" sm="6">
+              <AsyncValidationForm onSubmit={showResults} />
             </Col>
           </Row>
         </Container>

@@ -1,69 +1,119 @@
+.title{
+  font-size: responsive 25px 40px;
+  padding: 10px;
+  font-weight: lighter;
+  text-align: left;
+  padding-top: 0;
+  color:#5f90dd;
+}
+
 .linkAccountTabs{
   color: #777777;
   font-size: responsive 15px 20px;
   transition:color .5s;
   font-weight:700;
   text-align: center;
-  padding: 0 15px;
   cursor: pointer;
   position: relative;
-  margin: 15px 0;
-  top:0;
+  padding:25px 5px;
+  border: none;
+  border-radius: 5px;
+  margin:20px auto;
+  background: #fff;
+  max-width: 250px;
+
 }
+.linkAccountTabs
+{
+  position:relative;
+  -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.linkAccountTabs:before, .linkAccountTabs:after
+{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+  -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+  box-shadow:0 0 20px rgba(0,0,0,0.8);
+  top:10px;
+  bottom:10px;
+  left:0;
+  right:0;
+  -moz-border-radius:100px / 10px;
+  border-radius:100px / 10px;
+}
+.linkAccountTabs:after
+{
+  right:10px;
+  left:auto;
+  -webkit-transform:skew(8deg) rotate(3deg);
+  -moz-transform:skew(8deg) rotate(3deg);
+  -ms-transform:skew(8deg) rotate(3deg);
+  -o-transform:skew(8deg) rotate(3deg);
+  transform:skew(8deg) rotate(3deg);
+}
+.activTab:before, .activTab:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 30px;
+  left: 10px;
+  width: 50%;
+  top: 30%;
+  max-width:300px;
+  background: #777;
+  box-shadow: 0 35px 12px #d6d2d2;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.activTab:after
+{
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  transform: rotate(8deg);
+  right: 10px;
+  left: auto;
+}
+
 .linkAccountTabs:hover{
   color: #5f90dd;
 }
-.linkAccountTabs:active{
-  top:3px;
-}
+
 .icon{
   margin-right: 5px;
   font-size: 25px;
 }
 .activTab{
-  color: #5f90dd!important;
+  color: #5f90dd;
+  width:100%;
+  background:#fff;
+  margin:20px auto;
+  border:1px solid #5f90dd;
+  max-width: 250px;
+  text-align: center;
 }
-.activTab:after{
-  content: '';
-  border-bottom: 2px solid #5f90dd;
-  padding: 0;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 80% !important;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.linkAccountTabs:after{
-  content: '';
-  border-bottom: 2px solid #5f90dd;
-  padding: 0;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 0%;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.linkAccountTabs:hover:after {
-width: 80%;
-}
+
 .tabs{
   margin-top: 20px;
+  border-bottom:2px solid #5f90dd;
 }
 .block{
-  min-height: 350px;
-  margin:30px 0;
+  min-height: 430px;
+  margin:40px 0;
   display: none;
 }
 .activeBlock{
-  display: block;
-  min-height: 350px;
-  margin:30px 0;
+  min-height: 430px;
+  margin:40px 0;
 }
 .activeBlock {
   -webkit-animation-name: fadeInUp;

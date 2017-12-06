@@ -1,10 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { NavLink } from 'react-router-dom';
-import UnCheckedIcon from 'material-ui/svg-icons/toggle/check-box-outline-blank';
-import CheckedIcon from 'material-ui/svg-icons/toggle/check-box';
-import Checkbox from 'material-ui/Checkbox';
-import Sign from 'react-icons/lib/fa/sign-in';
+import Phone from 'react-icons/lib/fa/phone';
+import Phone2 from 'react-icons/lib/fa/fax';
 import LoginIcon from 'react-icons/lib/fa/key';
 import LoginUser from 'react-icons/lib/fa/user';
 import Password from 'react-icons/lib/md/lock';
@@ -14,16 +11,6 @@ import validate from '../../reducer/validate';
 import asyncValidate from '../../reducer/asyncValidate';
 import cs from './component.pcss';
 
-
-const renderCheckbox = ({ input, label }) => (
-  <Checkbox
-    uncheckedIcon={<UnCheckedIcon style={{ fill: '#464a4c' }} />}
-    checkedIcon={<CheckedIcon style={{ fill: '#5f90dd' }} />}
-    label={label}
-    checked={!!input.value}
-    onCheck={input.onChange}
-  />
-);
 const renderField = (
   { input, label, type, meta: { asyncValidating, touched, error } },
 ) => {
@@ -36,7 +23,7 @@ const renderField = (
     </div>
   );
 };
-const AsyncValidationForm = (props) => {
+const AccountSetting = (props) => {
   const { handleSubmit, submitting } = props;
   return (
     <form onSubmit={handleSubmit} className={cs.form}>
@@ -69,6 +56,28 @@ const AsyncValidationForm = (props) => {
       </div>
       <div className={cs.iconRelative}>
         <Field
+          name="Phone"
+          type="number"
+          label="number"
+          component="input"
+          placeholder="Phone number"
+
+        />
+        <Phone2 className={cs.inputIcon} />
+      </div>
+      <div className={cs.iconRelative}>
+        <Field
+          name="Phone2"
+          type="number"
+          label="number"
+          component="input"
+          placeholder="Phone number"
+
+        />
+        <Phone className={cs.inputIcon} />
+      </div>
+      <div className={cs.iconRelative}>
+        <Field
           name="password"
           type="password"
           component={renderField}
@@ -86,26 +95,15 @@ const AsyncValidationForm = (props) => {
         <Password className={cs.inputIcon} />
       </div>
       <div>
-        <Field
-          name="terms"
-          component={renderCheckbox}
-          label={
-            <div>
-              I agree to the{' '}
-              <NavLink to="/app/terms" className={cs.terms}>Terms</NavLink>
-            </div>
-          }
-        />
         <button type="submit" disabled={submitting} className={cs.loginModal}>
-          <Sign className={cs.sign_up} />
-          Sign Up
+          Save
         </button>
       </div>
     </form>
   );
 };
 
-AsyncValidationForm.propTypes = {
+AccountSetting.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
 
@@ -125,19 +123,9 @@ renderField.propTypes = {
 
 };
 
-
-renderCheckbox.propTypes = {
-  label: PropTypes.shape({
-    label: PropTypes.object,
-  }).isRequired,
-  input: PropTypes.shape({
-    onChange: PropTypes.func,
-  }).isRequired,
-};
-
 export default reduxForm({
-  form: 'AsyncValidationSign',
+  form: 'AccountSetting',
   validate,
   asyncValidate,
   asyncBlurFields: ['email'],
-})(AsyncValidationForm);
+})(AccountSetting);

@@ -15,17 +15,20 @@ class ListingDetail extends React.Component {
     super();
     this.state = {
       isChecked: false,
+      checkedIn: false,
+      checkedDe: false,
     };
   }
-  onIncrement() {
+  onIncrement(e) {
     this.setState({ isChecked: true },
     this.state.isChecked ? null : this.props.dispatchIn(),
-  );
+    this.state.isChecked ? null : e.target.style.color = '#5f90dd',
+    );
   }
   onDecrement(e) {
-    e.target.style.color = '#5f90dd';
     this.setState({ isChecked: true },
       this.state.isChecked ? null : this.props.dispatchDe(),
+      this.state.isChecked ? null : e.target.style.color = '#5f90dd',
   );
   }
   render() {
@@ -35,7 +38,7 @@ class ListingDetail extends React.Component {
           <Col sm="12" md="7" xs="12">
             <Carousel />
             <CounterIn
-              classActive={cs.Like}
+              classActive={this.state.checkedIn ? `${cs.LikeActive}` : `${cs.Like}`}
               value={this.props.counter}
               onIncrement={this.onIncrement.bind(this)}
             />
