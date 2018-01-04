@@ -12,7 +12,6 @@ import ModalLogin from '../../components/ModalLogin';
 import LogoBar from '../../resource/images/logoBar.png';
 import LoginSignButton from '../Buttons/LoginSignComponentButton/index';
 import cs from './component.pcss';
-// import Account from '../../components/MyAccount';
 
 
 class NavbarMenu extends React.Component {

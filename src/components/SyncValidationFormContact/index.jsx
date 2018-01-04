@@ -49,8 +49,8 @@ const SyncValidationForm = (props) => {
       <MuiThemeProvider>
         <Field name="sex" component={RadioButtonGroup}>
           <RadioButton
-            value="men"
-            label="men"
+            value="male"
+            label="male"
             iconStyle={{ fill: '5f90dd' }}
           />
           <RadioButton

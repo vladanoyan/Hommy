@@ -3,7 +3,7 @@ import { Modal as BootstrapModal, ModalBody } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Cloes from 'react-icons/lib/fa/close';
 import Image from '../../resource/images/log.jpg';
-import LogoBar from '../../resource/images/logoBar.png';
+import LogoBar from '../../resource/images/ListingAddLogo.png';
 import SyncValidationForm from '../../components/SyncValidationFormLogin';
 import SyncValidationFormRecoverPass from '../../components/SyncValidationFormLoginRecoverPass';
 import showResults from '../../reducer/showResults';

@@ -4,7 +4,6 @@ import FormControl from '../FormControl';
 import cs from './component.pcss';
 import AddressContainer from '../AddressContainer';
 import AddressLineRow from '../AddressLineRow';
-import SearchBtn from '../../components/Buttons/SearchBtn';
 
 class AddressLineInput extends React.Component {
   constructor() {
@@ -156,7 +155,6 @@ class AddressLineInput extends React.Component {
         <AddressContainer isHidden={isHidden}>
           {this.renderAddresses()}
         </AddressContainer>
-        <SearchBtn />
       </div>
     );
   }

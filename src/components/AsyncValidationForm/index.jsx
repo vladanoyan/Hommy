@@ -20,22 +20,27 @@ const renderCheckbox = ({ input, label }) => (
     uncheckedIcon={<UnCheckedIcon style={{ fill: '#464a4c' }} />}
     checkedIcon={<CheckedIcon style={{ fill: '#5f90dd' }} />}
     label={label}
-    checked={!!input.value}
     onCheck={input.onChange}
+
   />
 );
 const renderField = (
   { input, label, type, meta: { asyncValidating, touched, error } },
 ) => {
   return (
-    <div>
+    <div className={cs.iconRelative}>
       <div className={asyncValidating ? `${cs.async}` : ''}>
         <input {...input} type={type} placeholder={label} />
-        {touched && error && <span>{error}</span>}
+        {touched && error && <span className={cs.errorSpan}>{error}</span>}
       </div>
     </div>
   );
 };
+
+const renderError = ({ meta: { touched, error } }) => (
+  touched && error ? <span className={cs.errorSpan}>{error}</span> : false
+);
+
 const AsyncValidationForm = (props) => {
   const { handleSubmit, submitting } = props;
   return (
@@ -86,16 +91,19 @@ const AsyncValidationForm = (props) => {
         <Password className={cs.inputIcon} />
       </div>
       <div>
-        <Field
-          name="terms"
-          component={renderCheckbox}
-          label={
-            <div>
-              I agree to the{' '}
-              <NavLink to="/app/terms" className={cs.terms}>Terms</NavLink>
-            </div>
-          }
-        />
+        <div className={cs.iconRelative}>
+          <Field
+            name="terms"
+            component={renderCheckbox}
+            label={
+              <div>
+                I agree to the{' '}
+                <NavLink to="/app/terms" className={cs.terms}>Terms</NavLink>
+              </div>
+            }
+          />
+          <Field name="terms" component={renderError} />
+        </div>
         <button type="submit" disabled={submitting} className={cs.loginModal}>
           <Sign className={cs.sign_up} />
           Sign Up
@@ -124,7 +132,12 @@ renderField.propTypes = {
   type: PropTypes.string.isRequired,
 
 };
-
+renderError.propTypes = {
+  meta: PropTypes.shape({
+    touched: PropTypes.bool,
+    error: PropTypes.string,
+  }).isRequired,
+};
 
 renderCheckbox.propTypes = {
   label: PropTypes.shape({

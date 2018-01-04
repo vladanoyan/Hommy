@@ -3,7 +3,7 @@ import { Modal as BootstrapModal, ModalBody } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Cloes from 'react-icons/lib/fa/close';
 import Image from '../../resource/images/log.jpg';
-import LogoBar from '../../resource/images/logoBar.png';
+import LogoBar from '../../resource/images/ListingAddLogo.png';
 import AsyncValidationForm from '../../components/AsyncValidationForm';
 import showResults from '../../reducer/showResults';
 import FacebookBTN from '../../components/Buttons/FacebookBTN';

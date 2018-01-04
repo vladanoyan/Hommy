@@ -6,10 +6,21 @@ import Heart from 'react-icons/lib/fa/heart';
 import Listing from 'react-icons/lib/fa/plus-square';
 import Comma from 'react-icons/lib/md/dialpad';
 import Pic from '../../resource/images/profile-pic.png';
+import AddListingUser from '../../components/AddListingUser';
 import cs from './component.pcss';
 
 class Contact extends React.Component {
-
+  constructor() {
+    super();
+    this.state = {
+      modalIsOpen: false,
+    };
+  }
+  toggleModal() {
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen,
+    });
+  }
   render() {
     return (
       <div className={cs.drop}>
@@ -22,15 +33,24 @@ class Contact extends React.Component {
         </NavItem>
         <div className={cs.dropdown}>
           <NavItem>
-            <NavLink to="/app/listings" className={cs.linkAccountTabs}>
+            <NavLink to="/app/Account" className={cs.linkAccountTabs}>
               <Heart className={cs.sign_up} />My Favorites</NavLink>
           </NavItem>
+          <div
+            role="presentation"
+            onClick={this.toggleModal.bind(this)}
+            className={cs.linkAccountTabs}
+          >
+            <Listing
+              className={cs.sign_up}
+            />Add Listings
+          </div>
+          <AddListingUser
+            modal={this.state.modalIsOpen}
+            toggle={this.toggleModal.bind(this)}
+          />
           <NavItem>
-            <NavLink to="/app/listings" className={cs.linkAccountTabs}>
-              <Listing className={cs.sign_up} />Add Listings</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/app/listings" className={cs.linkAccountTabs}>
+            <NavLink to="/app/" className={cs.linkAccountTabs}>
               <SignOut className={cs.sign_up} />Log out</NavLink>
           </NavItem>
         </div>
