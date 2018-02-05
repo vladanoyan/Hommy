@@ -8,7 +8,7 @@ import validate from './actions/validate';
 import cs from '../component.pcss';
 
 const WizardFormThirdPage = props => {
-  const { handleSubmit, pristine, previousPage, submitting } = props;
+  const { handleSubmit, previousPage } = props;
   return (
     <form onSubmit={handleSubmit} className={cs.form}>
       <Row style={{ paddingBottom: '15px' }}>
@@ -75,7 +75,7 @@ const WizardFormThirdPage = props => {
           </button>
         </div>
         <div className={cs.nextDiv}>
-          <button type="submit" disabled={pristine || submitting} className={cs.next}>Add</button>
+          <button type="submit" className={cs.next}>Next</button>
         </div>
       </div>
     </form>
@@ -85,8 +85,6 @@ const WizardFormThirdPage = props => {
 WizardFormThirdPage.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   previousPage: PropTypes.func.isRequired,
-  submitting: PropTypes.bool.isRequired,
-  pristine: PropTypes.bool.isRequired,
 };
 
 export default reduxForm({
