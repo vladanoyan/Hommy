@@ -43,7 +43,7 @@ module.exports = (env) => {
      */
     output: {
       filename: 'bundle-[hash].js',
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'docs'),
       publicPath: env.NODE_ENV === 'production' ? '/Hommy/' : '/',
     },
 

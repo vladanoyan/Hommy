@@ -47,7 +47,12 @@ class NavbarMenu extends React.Component {
           <NavItem>
             <NavLink to="/" className={cs.brend}>
               <img src={LogoBar} alt="logo" />
-              Homm<span className={cs.animateY}>Y</span></NavLink>
+              <span className={cs.fadeIn1}>H</span>
+              <span className={cs.fadeIn3}>o</span>
+              <span className={cs.fadeIn5}>m</span>
+              <span className={cs.fadeIn7}>m</span>
+              <span className={cs.fadeIn9}>Y</span>
+            </NavLink>
           </NavItem>
           <Collapse className={cs.collapse} isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

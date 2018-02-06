@@ -97,7 +97,7 @@ class Account extends React.Component {
                 />
               </Col>
               <Col sm="12" xs="12" md="12">
-                Listings Items
+                <ListingItem />
               </Col>
             </Row>
             <Row className={this.state.activeTab === 2 ? `${cs.activeBlock}` : `${cs.block}`}>

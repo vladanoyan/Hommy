@@ -9,10 +9,10 @@ import { Button } from 'reactstrap';
 import validate from '../../reducer/syncValidate';
 import cs from './component.pcss';
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
+const renderField = ({ input, type, meta: { touched, error } }) => (
   <div>
     <div>
-      <input {...input} placeholder={label} type={type} />
+      <input {...input} type={type} />
       {touched && ((error && <span>{error}</span>))}
     </div>
   </div>
@@ -27,7 +27,7 @@ const SyncValidationForm = (props) => {
         name="firstname"
         type="text"
         component="input"
-        placeholder="First Name"
+        placeholder=" "
         id="firstName"
       />
       <label htmlFor="lastName">Last Name</label>
@@ -35,7 +35,7 @@ const SyncValidationForm = (props) => {
         name="lastname"
         type="text"
         component="input"
-        placeholder="Last Name"
+        placeholder=" "
         id="lastName"
       />
       <label htmlFor="E-mail">E-mail</label>
