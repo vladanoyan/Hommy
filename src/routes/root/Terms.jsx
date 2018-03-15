@@ -155,7 +155,7 @@ class Contact extends React.Component {
                   Hommy.com shall not be responsible for the accuracy or reliability of the information
                 provided. We also do not assume responsibility for those parts of the content, the
                 accuracy of which has not been confirmed.
-              </p>
+                </p>
                 <p>
                   Under no circumstances will we accept responsibility for placing by users unlawful,
                   threatening, abusive, defamatory or obscene information or materials that violate or

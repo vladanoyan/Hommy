@@ -366,7 +366,14 @@ progress {
 /**
  * Remove the default vertical scrollbar in IE.
  */
-
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 textarea {
   overflow: auto;
   outline: none;
