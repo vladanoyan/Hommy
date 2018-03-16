@@ -37,7 +37,7 @@ class Root extends React.Component {
     return (
       <div>
         <div>
-          <audio loop controls ref={audio => { this.audio = audio; }} >
+          <audio loop ref={audio => { this.audio = audio; }} >
             <source src={TRACKLIST[0].source} type="audio/mp3" />
             <track kind="captions" />
           </audio>
