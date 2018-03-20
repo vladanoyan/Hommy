@@ -26,22 +26,17 @@ const TRACKLIST = [
 
 class Root extends React.Component {
   componentDidMount() {
-    window.addEventListener('load', this.playAudio.bind(this));
-  }
-  playAudio() {
-    this.audio.play();
+    const audio = new Audio();
+    audio.src = TRACKLIST[0].source;
+    audio.loop = true;
+    audio.controls = true;
+    audio.play();
   }
   render() {
     const { route } = this.props;
 
     return (
       <div>
-        <div>
-          <audio loop ref={audio => { this.audio = audio; }} >
-            <source src={TRACKLIST[0].source} type="audio/mp3" />
-            <track kind="captions" />
-          </audio>
-        </div>
         <Provider store={store}>
           {renderRoutes(route.routes)}
         </Provider>
